@@ -1,0 +1,1305 @@
+# baseURI: http://dd.com/SASKBTest
+# imports: http://spinrdf.org/sp
+# imports: http://spinrdf.org/spl
+# imports: http://topbraid.org/sparqlmotionfunctions
+
+@prefix : <http://dd.com/SASKBTest#> .
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix unnamed: <http://example.org/unnamed#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dd.com/SASKBTest>
+  rdf:type owl:Ontology ;
+  owl:imports <http://spinrdf.org/sp> ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:imports <http://topbraid.org/sparqlmotionfunctions> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:BindCalculationDependency
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:_this ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object :CalculationDependency ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "ccalc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ccalc"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bc"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bclass"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "bc"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "bclass"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+            sp:predicate :node ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf :InferenceStage ;
+.
+:BodyState
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelObject ;
+.
+:BodyState_1
+  rdf:type :BodyState ;
+.
+:CalculationDependency
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object owl:ObjectProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "prop"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object :base ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "prop"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object :Rule ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:domain ;
+            sp:subject [
+                sp:varName "prop"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "prop"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object :CalculationDependency ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type afn:namespace ;
+                sp:arg1 :Node ;
+              ] ;
+            sp:variable [
+                sp:varName "ns"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    rdf:type fn:concat ;
+                    sp:arg1 [
+                        sp:varName "ns"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type fn:concat ;
+                        sp:arg1 "Rule_" ;
+                        sp:arg2 [
+                            rdf:type afn:localname ;
+                            sp:arg1 [
+                                sp:varName "calc"^^xsd:string ;
+                              ] ;
+                          ] ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    rdf:type fn:concat ;
+                    sp:arg1 [
+                        sp:varName "ns"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type fn:concat ;
+                        sp:arg1 "has" ;
+                        sp:arg2 [
+                            rdf:type afn:localname ;
+                            sp:arg1 [
+                                sp:varName "base"^^xsd:string ;
+                              ] ;
+                          ] ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "prop"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+            sp:predicate :level ;
+            sp:subject [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object "true"^^xsd:boolean ;
+            sp:predicate :isNodeActive ;
+            sp:subject [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:resultVariables (
+                    [
+                      sp:varName "calc"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      sp:object :CalculationDependency ;
+                      sp:predicate rdf:type ;
+                      sp:subject [
+                          sp:varName "calc"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type :CountBases ;
+                          arg:arg [
+                              sp:varName "calc"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "x1"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type :CountBaseClasses ;
+                          arg:arg [
+                              sp:varName "calc"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "x2"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type sp:eq ;
+                          sp:arg1 [
+                              sp:varName "x1"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "x2"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+            sp:predicate :node ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type :FindMaxBaseLevel ;
+                arg:arg [
+                    sp:varName "node"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf :CamputabilityClass ;
+.
+:CalculationDependency_1
+  rdf:type :CalculationDependency ;
+  :base :BodyState ;
+  :derivative :EgoState ;
+.
+:CalculationDependency_2
+  rdf:type :CalculationDependency ;
+  :base :EgoState ;
+  :base :SeeNavigation ;
+  :derivative :EgoAbsState ;
+.
+:CamputabilityClass
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:CountBaseClasses
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Count ;
+            sp:expression [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:CountBases
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Count ;
+            sp:expression [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:gt ;
+                sp:arg1 [
+                    rdf:type :CountForBases ;
+                    arg:arg [
+                        sp:varName "base"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 0 ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:CountBasesForSplitter
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Count ;
+            sp:expression [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:gt ;
+                sp:arg1 [
+                    rdf:type :CountForBasesForSplitter ;
+                    arg:arg [
+                        sp:varName "base"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 0 ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:CountForBases
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Count ;
+            sp:expression [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "sc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "sc"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:CountForBasesForSplitter
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Count ;
+            sp:expression [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:EgoAbsState
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelObject ;
+.
+:EgoState
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelObject ;
+.
+:EgoState_1
+  rdf:type :EgoState ;
+.
+:FindBindedCalcDep
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "calc"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object :CalculationDependency ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type :CountBases ;
+                arg:arg [
+                    sp:varName "calc"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "x1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type :CountBaseClasses ;
+                arg:arg [
+                    sp:varName "calc"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "x2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    sp:varName "x1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "x2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:FindMaxBaseLevel
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "level"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type :FindMaxBaseLevelId ;
+                arg:arg [
+                    sp:varName "arg"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "levelid"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object :Level ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "levelid"^^xsd:string ;
+              ] ;
+            sp:predicate :levelId ;
+            sp:subject [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:FindMaxBaseLevelId
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Max ;
+            sp:expression [
+                rdf:type sp:add ;
+                sp:arg1 [
+                    sp:varName "id"^^xsd:string ;
+                  ] ;
+                sp:arg2 1 ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :derivative ;
+            sp:subject [
+                sp:varName "nodeBase"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+            sp:predicate :level ;
+            sp:subject [
+                sp:varName "nodeBase"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "id"^^xsd:string ;
+              ] ;
+            sp:predicate :levelId ;
+            sp:subject [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:Flag
+  rdf:type owl:Class ;
+  rdfs:subClassOf :NavigatingLandmark ;
+.
+:GetCalcDepForModel
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "calc"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object :CalculationDependency ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "iclass"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "iclass"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+    ] ;
+  rdfs:subClassOf spin:Functions ;
+.
+:Goal
+  rdf:type owl:Class ;
+  rdfs:subClassOf :NavigatingLandmark ;
+.
+:InferenceStage
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Level
+  rdf:type owl:Class ;
+  spin:constructor [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "nextid"^^xsd:string ;
+              ] ;
+            sp:predicate :levelId ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:limit "1"^^xsd:long ;
+                sp:orderBy (
+                    [
+                      rdf:type sp:Desc ;
+                      sp:expression [
+                          sp:varName "id"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+                sp:resultVariables (
+                    [
+                      sp:varName "id"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      sp:object :Level ;
+                      sp:predicate rdf:type ;
+                      sp:subject [
+                          sp:varName "level"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      sp:object [
+                          sp:varName "id"^^xsd:string ;
+                        ] ;
+                      sp:predicate :levelId ;
+                      sp:subject [
+                          sp:varName "level"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:add ;
+                sp:arg1 [
+                    sp:varName "id"^^xsd:string ;
+                  ] ;
+                sp:arg2 1 ;
+              ] ;
+            sp:variable [
+                sp:varName "nextid"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf :CamputabilityClass ;
+.
+:Level_0
+  rdf:type :Level ;
+  :levelId 0 ;
+.
+:Level_1
+  rdf:type :Level ;
+  :levelId 1 ;
+.
+:Level_2
+  rdf:type :Level ;
+  :levelId 2 ;
+.
+:Line
+  rdf:type owl:Class ;
+  rdfs:subClassOf :NavigatingLandmark ;
+.
+:ModelClass
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object :Node ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate :node ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object :CalculationDependency ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "ccalc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ccalc"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bc"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bclass"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "bc"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "bclass"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type afn:namespace ;
+                sp:arg1 [
+                    sp:varName "bclass"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "ns"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    rdf:type fn:concat ;
+                    sp:arg1 [
+                        sp:varName "ns"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type fn:concat ;
+                        sp:arg1 "node_" ;
+                        sp:arg2 [
+                            rdf:type afn:localname ;
+                            sp:arg1 [
+                                sp:varName "calc"^^xsd:string ;
+                              ] ;
+                          ] ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "p"^^xsd:string ;
+                        ] ;
+                      sp:predicate :node ;
+                      sp:subject [
+                          sp:varName "calc"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:_this ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object :CalculationDependency ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "ccalc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ccalc"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bc"^^xsd:string ;
+              ] ;
+            sp:predicate :base ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "bclass"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "bc"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "bclass"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+            sp:predicate :node ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf owl:Thing ;
+.
+:ModelObject
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelClass ;
+.
+:ModelRelation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelClass ;
+.
+:NavigatingLandmark
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelObject ;
+.
+:Node
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CamputabilityClass ;
+.
+:Node_0_0
+  rdf:type :Node ;
+  :derivative :BodyState_1 ;
+  :isNodeActive "true"^^xsd:boolean ;
+  :level :Level_0 ;
+.
+:Player
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelObject ;
+.
+:Rule
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CamputabilityClass ;
+.
+:See
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ModelRelation ;
+.
+:SeeNavigation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :See ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty :see ;
+      owl:someValuesFrom :NavigatingLandmark ;
+    ] ;
+.
+:SeePlayers
+  rdf:type owl:Class ;
+  rdfs:subClassOf :See ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty :see ;
+      owl:someValuesFrom :Player ;
+    ] ;
+.
+:Splitter
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+            sp:predicate :level ;
+            sp:subject [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object "true"^^xsd:boolean ;
+            sp:predicate :isNodeActive ;
+            sp:subject [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:resultVariables (
+                    [
+                      sp:varName "calc"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      sp:object :Splitter ;
+                      sp:predicate rdf:type ;
+                      sp:subject [
+                          sp:varName "calc"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type :CountBasesForSplitter ;
+                          arg:arg [
+                              sp:varName "calc"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "x1"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type :CountBaseClasses ;
+                          arg:arg [
+                              sp:varName "calc"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "x2"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type sp:eq ;
+                          sp:arg1 [
+                              sp:varName "x1"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "x2"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+            sp:predicate :node ;
+            sp:subject [
+                sp:varName "calc"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type :FindMaxBaseLevel ;
+                arg:arg [
+                    sp:varName "node"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "level"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf :CalculationDependency ;
+.
+:Splitter_1
+  rdf:type :Splitter ;
+  :base :See ;
+  :derivative :SeeNavigation ;
+  :derivative :SeePlayers ;
+.
+:base
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :CalculationDependency ;
+  rdfs:domain :Node ;
+  rdfs:domain :Splitter ;
+  rdfs:range :ModelClass ;
+.
+:derivative
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :CalculationDependency ;
+  rdfs:domain :Node ;
+  rdfs:domain :Splitter ;
+  rdfs:range :ModelClass ;
+.
+:isNodeActive
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Node ;
+  rdfs:range xsd:boolean ;
+.
+:level
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Node ;
+  rdfs:range :Level ;
+.
+:levelId
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Level ;
+  rdfs:range xsd:integer ;
+.
+:node
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :CalculationDependency ;
+  rdfs:domain :Splitter ;
+  rdfs:range :Node ;
+.
+:node_Splitter_1
+  :levelId 0 ;
+.
+:see
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :See ;
+  rdfs:range :ModelObject ;
+.
+arg:arg
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:l
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
