@@ -16,14 +16,14 @@
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
   </owl:Ontology>
+  <owl:Class rdf:ID="Player">
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core#Object"/>
+  </owl:Class>
   <owl:Class rdf:ID="Goal">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core#Percepted"/>
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Landmark"/>
     </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Player">
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core#Object"/>
   </owl:Class>
   <owl:Class rdf:ID="Perception">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core#Object"/>
