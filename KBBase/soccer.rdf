@@ -63,20 +63,12 @@
     <rdfs:subClassOf rdf:resource="#Perception"/>
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core#Percepted"/>
   </owl:Class>
-  <owl:Class rdf:ID="IdentifiedPlayerAbsolute">
-    <rdfs:subClassOf rdf:resource="#IdentifiedPlayer"/>
-  </owl:Class>
   <owl:ObjectProperty rdf:ID="seeLandmark">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core#associative"/>
     <rdfs:range rdf:resource="#Line"/>
     <rdfs:domain rdf:resource="#Ego"/>
     <rdfs:range rdf:resource="#Flag"/>
     <rdfs:range rdf:resource="#Goal"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="subClassOfIdentifiedPlayer">
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core#generative"/>
-    <rdfs:domain rdf:resource="#IdentifiedPlayer"/>
-    <rdfs:range rdf:resource="#IdentifiedPlayerAbsolute"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="beBase4Ego">
     <rdfs:domain rdf:resource="#BodyState"/>
@@ -94,8 +86,8 @@
     <rdfs:domain rdf:resource="#seeLandmark"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="ownsBall">
+    <rdfs:domain rdf:resource="#Player"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core#associative"/>
-    <rdfs:domain rdf:resource="#IdentifiedPlayerAbsolute"/>
     <rdfs:domain rdf:resource="#EgoAbsolute"/>
     <rdfs:range rdf:resource="#Ball"/>
   </owl:ObjectProperty>
