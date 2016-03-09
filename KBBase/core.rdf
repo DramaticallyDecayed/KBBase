@@ -31,6 +31,9 @@
   <owl:Class rdf:ID="DomainEntity">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
+  <owl:Class rdf:ID="Known">
+    <rdfs:subClassOf rdf:resource="#DomainEntity"/>
+  </owl:Class>
   <owl:Class rdf:ID="Percepted">
     <rdfs:subClassOf rdf:resource="#DomainEntity"/>
   </owl:Class>
@@ -78,58 +81,95 @@
                     >true</sp:distinct>
                     <sp:where rdf:parseType="Collection">
                       <rdf:Description>
-                        <sp:object rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >base</sp:varName>
-                        </sp:object>
-                        <sp:predicate>
-                          <owl:ObjectProperty rdf:ID="hasBase"/>
-                        </sp:predicate>
-                        <sp:subject rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >recipient</sp:varName>
-                        </sp:subject>
-                      </rdf:Description>
-                      <rdf:Description>
-                        <sp:object>
-                          <owl:Class rdf:about="#ComputationUnit"/>
-                        </sp:object>
-                        <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-                        <sp:subject rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >donor</sp:varName>
-                        </sp:subject>
-                      </rdf:Description>
-                      <rdf:Description>
-                        <sp:object rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >base</sp:varName>
-                        </sp:object>
-                        <sp:predicate>
-                          <owl:ObjectProperty rdf:ID="hasDerivative"/>
-                        </sp:predicate>
-                        <sp:subject rdf:parseType="Resource">
-                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                          >donor</sp:varName>
-                        </sp:subject>
-                      </rdf:Description>
-                      <sp:Minus>
-                        <sp:elements rdf:parseType="Collection">
-                          <rdf:Description>
-                            <sp:object rdf:parseType="Resource">
+                        <rdf:rest rdf:parseType="Collection">
+                          <sp:Bind>
+                            <sp:expression>
+                              <CountBases>
+                                <arg:recipient rdf:parseType="Resource">
+                                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                  >recipient</sp:varName>
+                                </arg:recipient>
+                              </CountBases>
+                            </sp:expression>
+                            <sp:variable rdf:parseType="Resource">
                               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                              >level</sp:varName>
-                            </sp:object>
-                            <sp:predicate>
-                              <owl:ObjectProperty rdf:about="#level"/>
-                            </sp:predicate>
-                            <sp:subject rdf:parseType="Resource">
+                              >cb</sp:varName>
+                            </sp:variable>
+                          </sp:Bind>
+                          <sp:Bind>
+                            <sp:expression>
+                              <CountDonors>
+                                <arg:recipient rdf:parseType="Resource">
+                                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                  >recipient</sp:varName>
+                                </arg:recipient>
+                              </CountDonors>
+                            </sp:expression>
+                            <sp:variable rdf:parseType="Resource">
                               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                              >donor</sp:varName>
-                            </sp:subject>
-                          </rdf:Description>
-                        </sp:elements>
-                      </sp:Minus>
+                              >cd</sp:varName>
+                            </sp:variable>
+                          </sp:Bind>
+                          <sp:Filter>
+                            <sp:expression>
+                              <sp:or>
+                                <sp:arg2>
+                                  <sp:ne>
+                                    <sp:arg2 rdf:parseType="Resource">
+                                      <sp:varName rdf:datatype=
+                                      "http://www.w3.org/2001/XMLSchema#string"
+                                      >cd</sp:varName>
+                                    </sp:arg2>
+                                    <sp:arg1 rdf:parseType="Resource">
+                                      <sp:varName rdf:datatype=
+                                      "http://www.w3.org/2001/XMLSchema#string"
+                                      >cb</sp:varName>
+                                    </sp:arg1>
+                                  </sp:ne>
+                                </sp:arg2>
+                                <sp:arg1>
+                                  <sp:or>
+                                    <sp:arg2>
+                                      <sp:eq>
+                                        <sp:arg2 rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#integer"
+                                        >0</sp:arg2>
+                                        <sp:arg1 rdf:parseType="Resource">
+                                          <sp:varName rdf:datatype=
+                                          "http://www.w3.org/2001/XMLSchema#string"
+                                          >cd</sp:varName>
+                                        </sp:arg1>
+                                      </sp:eq>
+                                    </sp:arg2>
+                                    <sp:arg1>
+                                      <sp:eq>
+                                        <sp:arg2 rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#integer"
+                                        >0</sp:arg2>
+                                        <sp:arg1 rdf:parseType="Resource">
+                                          <sp:varName rdf:datatype=
+                                          "http://www.w3.org/2001/XMLSchema#string"
+                                          >cd</sp:varName>
+                                        </sp:arg1>
+                                      </sp:eq>
+                                    </sp:arg1>
+                                  </sp:or>
+                                </sp:arg1>
+                              </sp:or>
+                            </sp:expression>
+                          </sp:Filter>
+                        </rdf:rest>
+                        <rdf:first rdf:parseType="Resource">
+                          <sp:object>
+                            <owl:Class rdf:about="#ComputationUnit"/>
+                          </sp:object>
+                          <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                          <sp:subject rdf:parseType="Resource">
+                            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >recipient</sp:varName>
+                          </sp:subject>
+                        </rdf:first>
+                      </rdf:Description>
                     </sp:where>
                   </sp:Select>
                 </sp:query>
@@ -253,6 +293,83 @@
   <owl:Class rdf:ID="CUGeneration">
     <spin:rule>
       <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object>
+              <owl:Class rdf:about="#ComputationUnit"/>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >known</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="hasDerivative"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="#Known"/>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >known</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:Bind>
+            <sp:expression>
+              <afn:namespace>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >known</sp:varName>
+                </sp:arg1>
+              </afn:namespace>
+            </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >ns</sp:varName>
+            </sp:variable>
+          </sp:Bind>
+          <sp:Bind>
+            <sp:expression>
+              <sp:iri>
+                <sp:arg1>
+                  <fn:concat>
+                    <sp:arg2>
+                      <fn:concat>
+                        <sp:arg2>known</sp:arg2>
+                        <sp:arg1>cd_</sp:arg1>
+                      </fn:concat>
+                    </sp:arg2>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >ns</sp:varName>
+                    </sp:arg1>
+                  </fn:concat>
+                </sp:arg1>
+              </sp:iri>
+            </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cd</sp:varName>
+            </sp:variable>
+          </sp:Bind>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
             <sp:subject rdf:parseType="Resource">
@@ -291,7 +408,7 @@
                   >calc</sp:varName>
                 </sp:subject>
                 <sp:predicate>
-                  <owl:ObjectProperty rdf:about="#hasBase"/>
+                  <owl:ObjectProperty rdf:ID="hasBase"/>
                 </sp:predicate>
                 <sp:object rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -654,6 +771,9 @@
       </sp:Construct>
     </spin:rule>
   </owl:Class>
+  <owl:Class rdf:ID="Object">
+    <rdfs:subClassOf rdf:resource="#DomainEntity"/>
+  </owl:Class>
   <owl:Class rdf:about="#ComputationUnit">
     <rdfs:subClassOf>
       <owl:Class rdf:ID="ComputabilityEntity"/>
@@ -799,9 +919,6 @@
         </sp:templates>
       </sp:Construct>
     </spin:rule>
-  </owl:Class>
-  <owl:Class rdf:ID="Object">
-    <rdfs:subClassOf rdf:resource="#DomainEntity"/>
   </owl:Class>
   <owl:Class rdf:about="#DevelopmentStage">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -949,26 +1066,26 @@
     </spin:body>
   </spin:Function>
   <rdf:Description rdf:nodeID="A0">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:parseType="Resource">
+    <sp:object rdf:parseType="Resource">
       <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >nextLevel</sp:varName>
-    </rdf:first>
+      >base</sp:varName>
+    </sp:object>
+    <sp:predicate rdf:resource="#hasBase"/>
+    <sp:subject rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >recipient</sp:varName>
+    </sp:subject>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A1">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >level</sp:varName>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    <rdf:first rdf:parseType="Resource">
+    <sp:object rdf:parseType="Resource">
       <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-      >level</sp:varName>
-    </rdf:first>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A3">
-    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >recipient</sp:varName>
+      >base</sp:varName>
+    </sp:object>
+    <sp:predicate rdf:resource="#hasBase"/>
+    <sp:subject rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >recipient</sp:varName>
+    </sp:subject>
   </rdf:Description>
   <spin:Function rdf:ID="FindNextLevel">
     <spin:constraint>
@@ -978,7 +1095,12 @@
     </spin:constraint>
     <spin:body>
       <sp:Select>
-        <sp:resultVariables rdf:nodeID="A0"/>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >nextLevel</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
             <sp:object rdf:parseType="Resource">
@@ -986,7 +1108,10 @@
               >donorLevel</sp:varName>
             </sp:object>
             <sp:predicate rdf:resource="#number"/>
-            <sp:subject rdf:nodeID="A1"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >level</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <rdf:Description>
             <sp:object rdf:resource="#Level"/>
@@ -1032,11 +1157,11 @@
     </spin:body>
     <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
   </spin:Function>
-  <rdf:Description rdf:nodeID="A4">
+  <rdf:Description rdf:nodeID="A2">
     <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >levelNumber</sp:varName>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A5">
+  <rdf:Description rdf:nodeID="A3">
     <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >base</sp:varName>
   </rdf:Description>
@@ -1051,28 +1176,23 @@
       <sp:Select>
         <sp:orderBy rdf:parseType="Collection">
           <sp:Desc>
-            <sp:expression rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >levelNumber</sp:varName>
-            </sp:expression>
+            <sp:expression rdf:nodeID="A2"/>
           </sp:Desc>
         </sp:orderBy>
         <sp:limit rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
         >1</sp:limit>
-        <sp:resultVariables rdf:nodeID="A2"/>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >level</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
         <sp:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
         >true</sp:distinct>
         <sp:where rdf:parseType="Collection">
+          <rdf:Description rdf:nodeID="A1"/>
           <rdf:Description>
-            <sp:object rdf:nodeID="A5"/>
-            <sp:predicate rdf:resource="#hasBase"/>
-            <sp:subject rdf:nodeID="A3"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >base</sp:varName>
-            </sp:object>
+            <sp:object rdf:nodeID="A3"/>
             <sp:predicate rdf:resource="#hasDerivative"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1091,7 +1211,10 @@
             </sp:subject>
           </rdf:Description>
           <rdf:Description>
-            <sp:object rdf:nodeID="A4"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >levelNumber</sp:varName>
+            </sp:object>
             <sp:predicate rdf:resource="#number"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1101,6 +1224,110 @@
         </sp:where>
       </sp:Select>
     </spin:body>
+  </spin:Function>
+  <sp:Select rdf:nodeID="A4">
+    <sp:resultVariables rdf:parseType="Collection">
+      <sp:Count>
+        <sp:expression rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >base</sp:varName>
+        </sp:expression>
+      </sp:Count>
+    </sp:resultVariables>
+    <sp:where rdf:parseType="Collection">
+      <rdf:Description>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >base</sp:varName>
+        </sp:object>
+        <sp:predicate rdf:resource="#hasBase"/>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >recipient</sp:varName>
+        </sp:subject>
+      </rdf:Description>
+    </sp:where>
+  </sp:Select>
+  <spl:Argument rdf:nodeID="A5">
+    <spl:predicate rdf:resource="http://spinrdf.org/arg#recipient"/>
+  </spl:Argument>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first>
+      <sp:Count>
+        <sp:expression rdf:parseType="Resource">
+          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >donor</sp:varName>
+        </sp:expression>
+      </sp:Count>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >base</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >donor</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <sp:object rdf:resource="#ComputationUnit"/>
+    <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    <sp:subject rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >donor</sp:varName>
+    </sp:subject>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <sp:object rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >level</sp:varName>
+    </sp:object>
+    <sp:predicate rdf:resource="#level"/>
+    <sp:subject rdf:parseType="Resource">
+      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >donor</sp:varName>
+    </sp:subject>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <sp:object rdf:nodeID="A7"/>
+    <sp:predicate rdf:resource="#hasDerivative"/>
+    <sp:subject rdf:nodeID="A8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:rest rdf:parseType="Collection">
+      <rdf:Description rdf:nodeID="A0"/>
+      <rdf:Description rdf:nodeID="A9"/>
+      <rdf:Description rdf:nodeID="A11"/>
+      <rdf:Description rdf:nodeID="A10"/>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:resource="#ComputationUnit"/>
+      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >recipient</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <spin:Function rdf:ID="CountDonors">
+    <spin:constraint rdf:nodeID="A5"/>
+    <spin:body>
+      <sp:Select>
+        <sp:resultVariables rdf:nodeID="A6"/>
+        <sp:where rdf:nodeID="A12"/>
+      </sp:Select>
+    </spin:body>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+  </spin:Function>
+  <spin:Function rdf:ID="CountBases">
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/arg#recipient"/>
+      </spl:Argument>
+    </spin:constraint>
+    <spin:body rdf:nodeID="A4"/>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
   </spin:Function>
 </rdf:RDF>
 
