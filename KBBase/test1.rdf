@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://dramaticallydecayed.com/test1#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:arg="http://spinrdf.org/arg#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://dramaticallydecayed.com/test1">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Node">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Generated"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Concrete">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Landmark">
+    <rdfs:subClassOf rdf:resource="#Concrete"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Visible"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Point"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ego">
+    <rdfs:subClassOf rdf:resource="#Concrete"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Viewer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Center">
+    <rdfs:subClassOf rdf:resource="#Concrete"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Point"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Abstract">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Viewer">
+    <rdfs:subClassOf rdf:resource="#Abstract"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Generated">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Point">
+    <rdfs:subClassOf rdf:resource="#Abstract"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Visible">
+    <rdfs:subClassOf rdf:resource="#Abstract"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Player">
+    <rdfs:subClassOf rdf:resource="#Concrete"/>
+    <rdfs:subClassOf rdf:resource="#Visible"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="see">
+    <rdfs:domain rdf:resource="#Viewer"/>
+    <rdfs:range rdf:resource="#Visible"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="seenBy">
+    <owl:inverseOf rdf:resource="#see"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDerivative">
+    <rdfs:range rdf:resource="#Concrete"/>
+    <rdfs:domain rdf:resource="#Node"/>
+  </owl:ObjectProperty>
+  <Node rdf:ID="Node_1"/>
+  <Center rdf:ID="center">
+    <abs>
+      <Landmark rdf:ID="landmark"/>
+    </abs>
+  </Center>
+  <spin:Function rdf:ID="CreateNode">
+    <spin:body>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="#Node"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:expression>
+              <sp:iri>
+                <sp:arg1>node</sp:arg1>
+              </sp:iri>
+            </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:variable>
+          </sp:Bind>
+        </sp:where>
+      </sp:Construct>
+    </spin:body>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+  </spin:Function>
+  <Ego rdf:ID="ego">
+    <see rdf:resource="#landmark"/>
+    <see>
+      <Player rdf:ID="player"/>
+    </see>
+  </Ego>
+  <spin:MagicProperty rdf:ID="abs">
+    <spin:body>
+      <sp:Select>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >node</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="#Node"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >node</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:where>
+      </sp:Select>
+    </spin:body>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <spin:MagicProperty rdf:about="#abs">
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:domain rdf:resource="#Center"/>
+      </spin:MagicProperty>
+      <owl:ObjectProperty rdf:about="#seenBy"/>
+    </owl:propertyChainAxiom>
+  </spin:MagicProperty>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
