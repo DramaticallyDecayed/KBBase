@@ -2109,6 +2109,20 @@
             </sp:subject>
           </rdf:Description>
           <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >i</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >newr</sp:varName>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >c</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:nodeID="A0"/>
             <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
             <sp:subject rdf:parseType="Resource">
@@ -3896,6 +3910,12 @@
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="defineMiddleLine">
+    <rdfs:range rdf:resource="#MiddleLine"/>
+    <rdfs:domain rdf:resource="#Center"/>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+      <owl:ObjectProperty rdf:about="#formLine"/>
+    </owl:propertyChainAxiom>
     <rdfs:subPropertyOf rdf:resource="#defineLine"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#formLine">
@@ -3904,6 +3924,12 @@
     <rdfs:range rdf:resource="#Line"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="defineOffenciveLine">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+      <owl:ObjectProperty rdf:about="#formLine"/>
+    </owl:propertyChainAxiom>
+    <rdfs:range rdf:resource="#OffenciveLine"/>
+    <rdfs:domain rdf:resource="#Center"/>
     <rdfs:subPropertyOf rdf:resource="#defineLine"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#dependOn">
