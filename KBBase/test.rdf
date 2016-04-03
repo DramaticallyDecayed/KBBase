@@ -4500,11 +4500,15 @@
     <rdfs:subPropertyOf rdf:resource="#abstract"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasPassPartner">
-    <rdfs:domain rdf:resource="#Player"/>
-    <rdfs:range rdf:resource="#Player"/>
     <owl:propertyChainAxiom rdf:parseType="Collection">
       <owl:ObjectProperty rdf:about="#owns_player"/>
       <owl:ObjectProperty rdf:ID="not_ownedBy"/>
+    </owl:propertyChainAxiom>
+    <rdfs:domain rdf:resource="#Player"/>
+    <rdfs:range rdf:resource="#Player"/>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:ID="memberOf"/>
+      <owl:ObjectProperty rdf:ID="teamOf"/>
     </owl:propertyChainAxiom>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#associative"/>
@@ -4653,12 +4657,12 @@
       <owl:ObjectProperty rdf:about="#hasZone"/>
     </rdfs:subPropertyOf>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="teamOf">
+  <owl:ObjectProperty rdf:about="#teamOf">
     <rdfs:range rdf:resource="#Player"/>
     <rdfs:domain rdf:resource="#Team"/>
     <rdfs:subPropertyOf rdf:resource="#associative"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="memberOf">
+  <owl:ObjectProperty rdf:about="#memberOf">
     <rdfs:range rdf:resource="#Team"/>
     <rdfs:domain rdf:resource="#Player"/>
     <rdfs:subPropertyOf rdf:resource="#associative"/>
