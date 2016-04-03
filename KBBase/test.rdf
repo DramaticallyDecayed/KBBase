@@ -25,6 +25,14 @@
       <owl:Class rdf:ID="HLConcepts"/>
     </rdfs:subClassOf>
   </owl:Class>
+  <owl:Class rdf:ID="Rival">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Team"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Known"/>
+    </rdfs:subClassOf>
+  </owl:Class>
   <owl:Class rdf:ID="BallOwner">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#HLConcepts"/>
@@ -55,7 +63,7 @@
             </sp:subject>
             <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
             <sp:object>
-              <owl:Class rdf:ID="Known"/>
+              <owl:Class rdf:about="#Known"/>
             </sp:object>
           </rdf:Description>
           <sp:Bind>
@@ -2128,6 +2136,9 @@
     <rdfs:subClassOf>
       <owl:Class rdf:ID="ComputabilityEntity"/>
     </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Team">
+    <rdfs:subClassOf rdf:resource="#HLConcepts"/>
   </owl:Class>
   <owl:Class rdf:about="#Point">
     <rdfs:subClassOf rdf:resource="#HLConcepts"/>
@@ -4391,6 +4402,10 @@
   <owl:Class rdf:about="#DomainEntity">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
+  <owl:Class rdf:ID="OwnTeam">
+    <rdfs:subClassOf rdf:resource="#Team"/>
+    <rdfs:subClassOf rdf:resource="#Known"/>
+  </owl:Class>
   <owl:Class rdf:about="#Complex">
     <rdfs:subClassOf rdf:resource="#Object"/>
   </owl:Class>
@@ -4484,6 +4499,17 @@
     </rdfs:subPropertyOf>
     <rdfs:subPropertyOf rdf:resource="#abstract"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPassPartner">
+    <rdfs:domain rdf:resource="#Player"/>
+    <rdfs:range rdf:resource="#Player"/>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#owns_player"/>
+      <owl:ObjectProperty rdf:ID="not_ownedBy"/>
+    </owl:propertyChainAxiom>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#associative"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="formFormationDefenciveLine">
     <rdfs:subPropertyOf rdf:resource="#formFormation"/>
     <rdfs:domain rdf:resource="#DefenciveLine"/>
@@ -4536,6 +4562,11 @@
     <rdfs:range rdf:resource="#Line"/>
     <rdfs:domain rdf:resource="#Center"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#associative">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="computation"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="beNeighbour">
     <rdfs:range rdf:resource="#Player"/>
     <rdfs:domain rdf:resource="#Player"/>
@@ -4545,11 +4576,6 @@
     </owl:propertyChainAxiom>
     <owl:inverseOf rdf:resource="#hasNeighbour"/>
     <rdfs:subPropertyOf rdf:resource="#neighbour"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#associative">
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:ID="computation"/>
-    </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#see">
     <rdfs:range rdf:resource="#VisibleObject"/>
@@ -4587,6 +4613,15 @@
   <owl:ObjectProperty rdf:about="#complex">
     <rdfs:subPropertyOf rdf:resource="#computation"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#not_ownedBy">
+    <rdfs:subPropertyOf rdf:resource="#associative"/>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#inverse_abs_see"/>
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+    </owl:propertyChainAxiom>
+    <rdfs:domain rdf:resource="#Ball"/>
+    <rdfs:range rdf:resource="#Player"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="formFormationMiddleLine">
     <rdfs:subPropertyOf rdf:resource="#formFormation"/>
     <rdfs:domain rdf:resource="#MiddleLine"/>
@@ -4617,6 +4652,16 @@
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#hasZone"/>
     </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="teamOf">
+    <rdfs:range rdf:resource="#Player"/>
+    <rdfs:domain rdf:resource="#Team"/>
+    <rdfs:subPropertyOf rdf:resource="#associative"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="memberOf">
+    <rdfs:range rdf:resource="#Team"/>
+    <rdfs:domain rdf:resource="#Player"/>
+    <rdfs:subPropertyOf rdf:resource="#associative"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="defineOffenciveLine">
     <rdfs:subPropertyOf rdf:resource="#defineLine"/>
