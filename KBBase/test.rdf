@@ -3047,6 +3047,14 @@
       <owl:Class rdf:ID="StateEntity"/>
     </rdfs:subClassOf>
   </owl:Class>
+  <owl:Class rdf:ID="FreeBallOInvariant">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Complex"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="OutcomeInvariant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
   <owl:Class rdf:about="#ComplexGenerativeCU">
     <rdfs:subClassOf rdf:resource="#GenerativeCU"/>
   </owl:Class>
@@ -4138,7 +4146,7 @@
       <owl:Class rdf:about="#Known"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="OutcomeInvariant">
+  <owl:Class rdf:about="#OutcomeInvariant">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Invariant"/>
     </rdfs:subClassOf>
@@ -7554,6 +7562,18 @@
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="list">
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="freeball_e2oi">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#owns_ego"/>
+    </owl:propertyChainAxiom>
+    <rdfs:range rdf:resource="#FreeBallOInvariant"/>
+    <rdfs:domain rdf:resource="#Ego"/>
+    <rdfs:subPropertyOf rdf:resource="#generative"/>
+    <rdfs:subPropertyOf rdf:resource="#complex"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#freeball"/>
+    </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#freeball">
     <rdfs:subPropertyOf>
