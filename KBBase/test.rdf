@@ -3006,6 +3006,176 @@
     <rdfs:subClassOf rdf:resource="#HLConcepts"/>
   </owl:Class>
   <owl:Class rdf:ID="SitRelationRefinement">
+    <spin:rule>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r2</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="alternativeInvariant"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r1</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r1</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="#alternativeInvariant"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r2</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <sp:SubQuery>
+            <sp:query>
+              <sp:Select>
+                <sp:groupBy rdf:parseType="Collection">
+                  <rdf:Description>
+                    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >r</sp:varName>
+                  </rdf:Description>
+                </sp:groupBy>
+                <sp:resultVariables rdf:parseType="Collection">
+                  <rdf:Description>
+                    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >r</sp:varName>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <sp:expression>
+                      <sp:Count>
+                        <sp:expression rdf:parseType="Resource">
+                          <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >range</sp:varName>
+                        </sp:expression>
+                      </sp:Count>
+                    </sp:expression>
+                    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >nr</sp:varName>
+                  </rdf:Description>
+                </sp:resultVariables>
+                <sp:where rdf:parseType="Collection">
+                  <sp:TriplePath>
+                    <sp:object>
+                      <owl:Class rdf:about="#ProblemInvariant"/>
+                    </sp:object>
+                    <sp:path>
+                      <sp:ModPath>
+                        <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >1</sp:modMin>
+                        <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >-2</sp:modMax>
+                        <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+                      </sp:ModPath>
+                    </sp:path>
+                    <sp:subject rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >invariant</sp:varName>
+                    </sp:subject>
+                  </sp:TriplePath>
+                  <sp:TriplePath>
+                    <sp:object>
+                      <owl:ObjectProperty rdf:ID="precede"/>
+                    </sp:object>
+                    <sp:path>
+                      <sp:ModPath>
+                        <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >0</sp:modMin>
+                        <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >-2</sp:modMax>
+                        <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subPropertyOf"/>
+                      </sp:ModPath>
+                    </sp:path>
+                    <sp:subject rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >r</sp:varName>
+                    </sp:subject>
+                  </sp:TriplePath>
+                  <rdf:Description>
+                    <sp:object rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >invariant</sp:varName>
+                    </sp:object>
+                    <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+                    <sp:subject rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >r</sp:varName>
+                    </sp:subject>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <sp:object rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >range</sp:varName>
+                    </sp:object>
+                    <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
+                    <sp:subject rdf:parseType="Resource">
+                      <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >r</sp:varName>
+                    </sp:subject>
+                  </rdf:Description>
+                </sp:where>
+              </sp:Select>
+            </sp:query>
+          </sp:SubQuery>
+          <sp:Filter>
+            <sp:expression>
+              <sp:ge>
+                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >2</sp:arg2>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >nr</sp:varName>
+                </sp:arg1>
+              </sp:ge>
+            </sp:expression>
+          </sp:Filter>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r1</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r2</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >r</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:Filter>
+            <sp:expression>
+              <sp:ne>
+                <sp:arg2 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >r2</sp:varName>
+                </sp:arg2>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >r1</sp:varName>
+                </sp:arg1>
+              </sp:ne>
+            </sp:expression>
+          </sp:Filter>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#DevelopmentEntity"/>
     </rdfs:subClassOf>
@@ -3105,7 +3275,7 @@
             <sp:elements rdf:parseType="Collection">
               <sp:TriplePath>
                 <sp:object>
-                  <owl:ObjectProperty rdf:ID="precede"/>
+                  <owl:ObjectProperty rdf:about="#precede"/>
                 </sp:object>
                 <sp:path>
                   <sp:ModPath>
@@ -8251,6 +8421,13 @@
       <owl:ObjectProperty rdf:about="#precede"/>
     </rdfs:subPropertyOf>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#start_event">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="staterelations"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Transition"/>
+    <rdfs:range rdf:resource="#Event"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="abs_see">
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="abs"/>
@@ -8261,13 +8438,6 @@
       <owl:ObjectProperty rdf:ID="see"/>
     </owl:propertyChainAxiom>
     <rdfs:domain rdf:resource="#Center"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#start_event">
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:ID="staterelations"/>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="#Transition"/>
-    <rdfs:range rdf:resource="#Event"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="proceed_egoPassPartnerPlInvariant">
     <rdfs:domain rdf:resource="#EgoPassPartnerPlInvariant"/>
