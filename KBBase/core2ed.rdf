@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:arg="http://spinrdf.org/arg#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://dramaticallydecayed.com/core2ed#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://dramaticallydecayed.com/core2ed">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="ComputationEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DesignEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="WorldEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ModelEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ComputabilityEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DesignEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ComputationUnit">
+    <rdfs:subClassOf rdf:resource="#ComputabilityEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Node">
+    <rdfs:subClassOf rdf:resource="#ComputationEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Level">
+    <rdfs:subClassOf rdf:resource="#ComputationEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ProactiveEntity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ModelEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Computed">
+    <rdfs:subClassOf rdf:resource="#WorldEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ModelEntity">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Percepted">
+    <rdfs:subClassOf rdf:resource="#WorldEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Known">
+    <rdfs:subClassOf rdf:resource="#WorldEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DevelopmentEntity">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SituationEntity">
+    <rdfs:subClassOf rdf:resource="#ModelEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DesignEntity">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="associative">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="computability"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="computation">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="design"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#computability">
+    <rdfs:subPropertyOf rdf:resource="#design"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="generative">
+    <rdfs:subPropertyOf rdf:resource="#computability"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="situation">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="model"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="world">
+    <rdfs:subPropertyOf rdf:resource="#model"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="proactive">
+    <rdfs:subPropertyOf rdf:resource="#model"/>
+  </owl:ObjectProperty>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
