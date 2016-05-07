@@ -35,6 +35,9 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#Known"/>
   </owl:Class>
+  <owl:Class rdf:ID="BallOwner">
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
+  </owl:Class>
   <owl:Class rdf:about="#Point">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
   </owl:Class>
@@ -49,25 +52,87 @@
   <owl:Class rdf:about="#Viewer">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
   </owl:Class>
+  <owl:ObjectProperty rdf:ID="ownsBall">
+    <rdfs:range rdf:resource="#Ball"/>
+    <rdfs:domain rdf:resource="#BallOwner"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_abs">
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+    <rdfs:range rdf:resource="#CoordinateCenter"/>
+    <rdfs:domain rdf:resource="#Point"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="seenby">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
     <rdfs:range rdf:resource="#Viewer"/>
     <rdfs:domain rdf:resource="#VisibleObject"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="see">
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
-    <rdfs:domain rdf:resource="#Viewer"/>
+  <owl:ObjectProperty rdf:ID="abs_see">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:ID="abs_seenby"/>
+      <owl:ObjectProperty rdf:ID="see"/>
+    </owl:propertyChainAxiom>
     <rdfs:range rdf:resource="#VisibleObject"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+    <rdfs:domain rdf:resource="#CoordinateCenter"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="abs"/>
+    </rdfs:subPropertyOf>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="abs">
+  <owl:ObjectProperty rdf:ID="ego_ownsBall">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:ID="inverse_abs_seenby"/>
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+    </owl:propertyChainAxiom>
+    <rdfs:range rdf:resource="#Ball"/>
+    <rdfs:domain rdf:resource="#Ego"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+    <rdfs:subPropertyOf rdf:resource="#ownsBall"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#inverse_abs_seenby">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#see"/>
+      <owl:ObjectProperty rdf:about="#inverse_abs"/>
+    </owl:propertyChainAxiom>
+    <rdfs:range rdf:resource="#CoordinateCenter"/>
+    <rdfs:domain rdf:resource="#Ego"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#abs"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#abs">
     <rdfs:domain rdf:resource="#CoordinateCenter"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
     <rdfs:range rdf:resource="#Point"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="abs_seenby">
+  <owl:ObjectProperty rdf:ID="inverse_abs_see">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#seenby"/>
+      <owl:ObjectProperty rdf:about="#inverse_abs_seenby"/>
+    </owl:propertyChainAxiom>
+    <rdfs:range rdf:resource="#CoordinateCenter"/>
+    <rdfs:domain rdf:resource="#VisibleObject"/>
+    <rdfs:subPropertyOf rdf:resource="#abs"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#see">
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+    <rdfs:domain rdf:resource="#Viewer"/>
+    <rdfs:range rdf:resource="#VisibleObject"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="player_ownsBall">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#inverse_abs_see"/>
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+    </owl:propertyChainAxiom>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+    <rdfs:range rdf:resource="#Ball"/>
+    <rdfs:domain rdf:resource="#Player"/>
+    <rdfs:subPropertyOf rdf:resource="#ownsBall"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#abs_seenby">
     <rdfs:subPropertyOf rdf:resource="#abs"/>
     <rdfs:domain rdf:resource="#CoordinateCenter"/>
     <rdfs:range rdf:resource="#Ego"/>
