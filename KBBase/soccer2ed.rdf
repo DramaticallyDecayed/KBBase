@@ -82,7 +82,7 @@
         </sp:templates>
         <sp:where rdf:parseType="Collection">
           <sp:Bind>
-            <sp:expression rdf:resource="#node_cu_RivalTeam"/>
+            <sp:expression rdf:resource="#node_cu_Ego"/>
             <sp:variable rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >nd</sp:varName>
@@ -178,7 +178,7 @@
         </sp:templates>
         <sp:where rdf:parseType="Collection">
           <sp:Bind>
-            <sp:expression rdf:resource="#node_cu_Ego"/>
+            <sp:expression rdf:resource="#node_cu_RivalTeam"/>
             <sp:variable rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >nd</sp:varName>
@@ -426,18 +426,15 @@
     </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasAllyPassPartnerInUniformZone">
-    <core2ed:adjustmentOf>
+    <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="hasAllyPassPartner"/>
-    </core2ed:adjustmentOf>
+    </rdfs:subPropertyOf>
     <rdfs:range rdf:resource="#Player"/>
     <rdfs:domain rdf:resource="#Ego"/>
     <owl:propertyChainAxiom rdf:parseType="Collection">
       <owl:ObjectProperty rdf:ID="egoHasUniformZone"/>
       <owl:ObjectProperty rdf:ID="uniformZoneOf"/>
     </owl:propertyChainAxiom>
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="#hasAllyPassPartner"/>
-    </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="memberOf">
     <rdfs:domain rdf:resource="#TeamPlayer"/>
@@ -611,16 +608,21 @@
       <owl:ObjectProperty rdf:about="#memberOf"/>
       <owl:ObjectProperty rdf:about="#teamOf"/>
     </owl:propertyChainAxiom>
-    <core2ed:adjustmentOf rdf:resource="#hasPassPartner"/>
+    <rdfs:subPropertyOf rdf:resource="#hasPassPartner"/>
     <rdfs:range rdf:resource="#Player"/>
     <rdfs:domain rdf:resource="#Ego"/>
-    <rdfs:subPropertyOf rdf:resource="#hasPassPartner"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#beUniformZone">
     <rdfs:range rdf:resource="#UniformPlayerZone"/>
     <rdfs:domain rdf:resource="#PlayerZone"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
   </owl:ObjectProperty>
+  <rdf:Property rdf:about="http://spinrdf.org/arg#a1">
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://spinrdf.org/arg#a2">
+    <rdfs:subPropertyOf rdf:resource="http://spinrdf.org/sp#arg"/>
+  </rdf:Property>
   <owl:DatatypeProperty rdf:ID="number">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#entity"/>
     <rdfs:domain rdf:resource="#Player"/>
@@ -652,11 +654,11 @@
     <rdfs:domain rdf:resource="#Team"/>
   </owl:DatatypeProperty>
   <core2ed:ComputedClassGeneration rdf:ID="computedClassGeneration"/>
-  <TestNDReification rdf:ID="TestNDReification_1"/>
   <core2ed:CUWorlGeneration rdf:ID="cuWorlGeneration"/>
   <core2ed:LevelGeneration rdf:ID="levelGeneration"/>
   <core2ed:ElaborationGeneration rdf:ID="elaborationGeneration"/>
   <core2ed:NDGeneration rdf:ID="ndGeneration"/>
+  <core2ed:NDReification rdf:ID="NDReification_1"/>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
