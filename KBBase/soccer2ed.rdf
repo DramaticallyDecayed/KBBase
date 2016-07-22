@@ -61,9 +61,6 @@
   <owl:Class rdf:ID="DefenciveLine">
     <rdfs:subClassOf rdf:resource="#PlayerLine"/>
   </owl:Class>
-  <owl:Class rdf:about="#Viewer">
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
-  </owl:Class>
   <owl:Class rdf:ID="TestNDReification">
     <spin:rule>
       <sp:Construct>
@@ -130,7 +127,7 @@
         </sp:templates>
         <sp:where rdf:parseType="Collection">
           <sp:Bind>
-            <sp:expression rdf:resource="#node_cu_EgoTeam"/>
+            <sp:expression rdf:resource="#node_cu_CoordinateCenter"/>
             <sp:variable rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >nd</sp:varName>
@@ -163,6 +160,102 @@
     </spin:rule>
     <spin:rule>
       <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:variable>
+            <sp:expression rdf:resource="#node_cu_abs_see"/>
+          </sp:Bind>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#implement"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:variable>
+            <sp:expression rdf:resource="#node_cu_abs_seenby"/>
+          </sp:Bind>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#implement"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
         <sp:templates rdf:parseType="Collection">
           <rdf:Description>
             <sp:object rdf:parseType="Resource">
@@ -178,7 +271,56 @@
         </sp:templates>
         <sp:where rdf:parseType="Collection">
           <sp:Bind>
-            <sp:expression rdf:resource="#node_cu_RivalTeam"/>
+            <sp:expression rdf:resource="#node_cu_abs"/>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:variable>
+          </sp:Bind>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#implement"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#DevelopmentEntity"/>
+    <spin:rule>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:expression rdf:resource="#node_cu_see"/>
             <sp:variable rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >nd</sp:varName>
@@ -259,86 +401,136 @@
     </spin:rule>
     <spin:rule>
       <sp:Construct>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >d</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >nd</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-        </sp:templates>
         <sp:where rdf:parseType="Collection">
           <sp:Bind>
-            <sp:expression rdf:resource="#node_cu_CoordinateCenter"/>
             <sp:variable rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >nd</sp:varName>
             </sp:variable>
+            <sp:expression rdf:resource="#node_cu_EgoTeam"/>
           </sp:Bind>
           <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >cu</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#implement"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >nd</sp:varName>
             </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#implement"/>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >d</sp:varName>
+              >cu</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >cu</sp:varName>
             </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
           </rdf:Description>
         </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:templates>
       </sp:Construct>
     </spin:rule>
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#DevelopmentEntity"/>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:variable>
+            <sp:expression rdf:resource="#node_cu_RivalTeam"/>
+          </sp:Bind>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#implement"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >cu</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >nd</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://dramaticallydecayed.com/core2ed#hasDerivative"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >d</sp:varName>
+            </sp:object>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+  </owl:Class>
+  <owl:Class rdf:about="#Viewer">
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Team">
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
   </owl:Class>
   <owl:Class rdf:ID="UniformPlayerZone">
     <rdfs:subClassOf>
       <owl:Class rdf:ID="PlayerZone"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:about="#Team">
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
-  </owl:Class>
   <owl:Class rdf:ID="Landmark">
     <rdfs:subClassOf rdf:resource="#VisibleObject"/>
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#Percepted"/>
     <rdfs:subClassOf rdf:resource="#Point"/>
   </owl:Class>
-  <owl:Class rdf:ID="EgoTeam">
-    <rdfs:subClassOf rdf:resource="#Team"/>
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#Known"/>
-  </owl:Class>
   <owl:Class rdf:ID="BallOwner">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Goal">
-    <rdfs:subClassOf rdf:resource="#Landmark"/>
   </owl:Class>
   <owl:Class rdf:ID="MiddleLine">
     <rdfs:subClassOf rdf:resource="#PlayerLine"/>
   </owl:Class>
-  <owl:Class rdf:ID="Ball">
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#Percepted"/>
-    <rdfs:subClassOf rdf:resource="#VisibleObject"/>
+  <owl:Class rdf:ID="EgoTeam">
+    <rdfs:subClassOf rdf:resource="#Team"/>
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#Known"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Goal">
+    <rdfs:subClassOf rdf:resource="#Landmark"/>
   </owl:Class>
   <owl:Class rdf:about="#TeamPlayer">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ball">
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#Percepted"/>
+    <rdfs:subClassOf rdf:resource="#VisibleObject"/>
   </owl:Class>
   <owl:Class rdf:ID="Flag">
     <rdfs:subClassOf rdf:resource="#Landmark"/>
@@ -353,22 +545,19 @@
   <owl:Class rdf:about="#PlayerZone">
     <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/core2ed#WorldHLConcept"/>
   </owl:Class>
-  <owl:ObjectProperty rdf:ID="defineDefenciveLine">
-    <rdfs:domain rdf:resource="#CoordinateCenter"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
-    <rdfs:range rdf:resource="#DefenciveLine"/>
-    <owl:propertyChainAxiom rdf:parseType="Collection">
-      <owl:ObjectProperty rdf:ID="abs_see"/>
-      <owl:ObjectProperty rdf:ID="formLine"/>
-    </owl:propertyChainAxiom>
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:ID="defineLine"/>
-    </rdfs:subPropertyOf>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#formLine">
+  <owl:ObjectProperty rdf:ID="formLine">
     <rdfs:range rdf:resource="#PlayerLine"/>
     <rdfs:domain rdf:resource="#Player"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="formedAsMiddleLine">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="formFormation"/>
+    </rdfs:subPropertyOf>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
+    <rdfs:domain rdf:resource="#MiddleLine"/>
+    <rdfs:range rdf:resource="#Formation"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#complex"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasPassPartner">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
@@ -385,7 +574,7 @@
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
     <owl:propertyChainAxiom rdf:parseType="Collection">
       <owl:ObjectProperty rdf:ID="inverse_abs_see"/>
-      <owl:ObjectProperty rdf:about="#abs_see"/>
+      <owl:ObjectProperty rdf:ID="abs_see"/>
     </owl:propertyChainAxiom>
     <rdfs:domain rdf:resource="#Ball"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
@@ -399,31 +588,34 @@
     <rdfs:range rdf:resource="#OffenciveLine"/>
     <rdfs:domain rdf:resource="#CoordinateCenter"/>
     <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="defineLine"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="defineDefensiveLine">
+    <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#defineLine"/>
     </rdfs:subPropertyOf>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+      <owl:ObjectProperty rdf:about="#formLine"/>
+    </owl:propertyChainAxiom>
+    <rdfs:range rdf:resource="#DefenciveLine"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
+    <rdfs:domain rdf:resource="#CoordinateCenter"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="inverse_abs">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
     <rdfs:domain rdf:resource="#Point"/>
     <rdfs:range rdf:resource="#CoordinateCenter"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="abs"/>
+    </owl:inverseOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="see">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
     <rdfs:range rdf:resource="#VisibleObject"/>
     <rdfs:domain rdf:resource="#Viewer"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="abs_seenby">
-    <owl:propertyChainAxiom rdf:parseType="Collection">
-      <owl:ObjectProperty rdf:ID="abs"/>
-      <owl:ObjectProperty rdf:ID="seenby"/>
-    </owl:propertyChainAxiom>
-    <rdfs:range rdf:resource="#Ego"/>
-    <rdfs:domain rdf:resource="#CoordinateCenter"/>
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="#abs"/>
-    </rdfs:subPropertyOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasAllyPassPartnerInUniformZone">
     <rdfs:subPropertyOf>
@@ -436,11 +628,31 @@
       <owl:ObjectProperty rdf:ID="uniformZoneOf"/>
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="abs_seenby">
+    <rdfs:range rdf:resource="#Viewer"/>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#abs"/>
+      <owl:ObjectProperty rdf:ID="seenby"/>
+    </owl:propertyChainAxiom>
+    <rdfs:domain rdf:resource="#CoordinateCenter"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#abs"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="memberOf">
     <rdfs:domain rdf:resource="#TeamPlayer"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
     <rdfs:range rdf:resource="#Team"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="formedAsOffenciveLine">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#formFormation"/>
+    </rdfs:subPropertyOf>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
+    <rdfs:domain rdf:resource="#OffenciveLine"/>
+    <rdfs:range rdf:resource="#Formation"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#complex"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="ownsBall">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
@@ -467,6 +679,15 @@
     <rdfs:domain rdf:resource="#Ego"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="formedAsDefenciveLine">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#formFormation"/>
+    </rdfs:subPropertyOf>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
+    <rdfs:domain rdf:resource="#DefenciveLine"/>
+    <rdfs:range rdf:resource="#Formation"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#complex"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#egoHasUniformZone">
     <owl:propertyChainAxiom rdf:parseType="Collection">
       <owl:ObjectProperty rdf:about="#egoHasZone"/>
@@ -485,10 +706,10 @@
     <rdfs:range rdf:resource="#Player"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#seenby">
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+    <owl:inverseOf rdf:resource="#see"/>
     <rdfs:domain rdf:resource="#VisibleObject"/>
     <rdfs:range rdf:resource="#Viewer"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="defineMiddleLine">
     <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -510,11 +731,13 @@
       <owl:ObjectProperty rdf:about="#seenby"/>
       <owl:ObjectProperty rdf:about="#inverse_abs_seenby"/>
     </owl:propertyChainAxiom>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#abs_see"/>
+    </owl:inverseOf>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="formFormation">
+  <owl:ObjectProperty rdf:about="#formFormation">
     <rdfs:domain rdf:resource="#PlayerLine"/>
     <rdfs:range rdf:resource="#Formation"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#complex"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="teamOf">
@@ -522,18 +745,6 @@
     <rdfs:domain rdf:resource="#Team"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="formedByMiddleLine">
-    <rdfs:range rdf:resource="#Formation"/>
-    <rdfs:domain rdf:resource="#MiddleLine"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
-    <rdfs:subPropertyOf rdf:resource="#formFormation"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="formedByOffenciveLine">
-    <rdfs:range rdf:resource="#Formation"/>
-    <rdfs:domain rdf:resource="#OffenciveLine"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
-    <rdfs:subPropertyOf rdf:resource="#formFormation"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#defineLine">
     <rdfs:range rdf:resource="#PlayerLine"/>
@@ -561,6 +772,12 @@
       <owl:ObjectProperty rdf:about="#abs_see"/>
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#abs">
+    <rdfs:domain rdf:resource="#CoordinateCenter"/>
+    <rdfs:range rdf:resource="#Point"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#inverse_abs_seenby">
     <rdfs:subPropertyOf rdf:resource="#inverse_abs"/>
     <rdfs:domain rdf:resource="#Ego"/>
@@ -569,18 +786,7 @@
       <owl:ObjectProperty rdf:about="#see"/>
       <owl:ObjectProperty rdf:about="#inverse_abs"/>
     </owl:propertyChainAxiom>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#abs">
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#associative"/>
-    <rdfs:range rdf:resource="#Point"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#world"/>
-    <rdfs:domain rdf:resource="#CoordinateCenter"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="formedByDefenciveLine">
-    <rdfs:range rdf:resource="#Formation"/>
-    <rdfs:domain rdf:resource="#DefenciveLine"/>
-    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#generative"/>
-    <rdfs:subPropertyOf rdf:resource="#formFormation"/>
+    <owl:inverseOf rdf:resource="#abs_seenby"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#occupyPlayerZone">
     <rdfs:range rdf:resource="#PlayerZone"/>
@@ -633,6 +839,11 @@
     <rdfs:domain rdf:resource="#VisibleObject"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
   </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="globalDirection">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#entity"/>
+    <rdfs:domain rdf:resource="#Point"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="direction">
     <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#entity"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -653,12 +864,22 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="#Team"/>
   </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="type">
+    <rdfs:domain rdf:resource="#Landmark"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#entity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="specialType">
+    <rdfs:domain rdf:resource="#Landmark"/>
+    <rdfs:subPropertyOf rdf:resource="http://dramaticallydecayed.com/core2ed#entity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
   <core2ed:ComputedClassGeneration rdf:ID="computedClassGeneration"/>
-  <core2ed:CUWorlGeneration rdf:ID="cuWorlGeneration"/>
-  <core2ed:LevelGeneration rdf:ID="levelGeneration"/>
   <core2ed:ElaborationGeneration rdf:ID="elaborationGeneration"/>
   <core2ed:NDGeneration rdf:ID="ndGeneration"/>
-  <core2ed:NDReification rdf:ID="NDReification_1"/>
+  <core2ed:NDReification rdf:ID="ndReification"/>
+  <core2ed:CUWorldGeneration rdf:ID="cuWorlGeneration"/>
+  <core2ed:LevelGeneration rdf:ID="levelGeneration"/>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
