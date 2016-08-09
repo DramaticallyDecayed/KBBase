@@ -852,11 +852,6 @@
     <rdfs:range rdf:resource="#Player"/>
     <rdfs:domain rdf:resource="#Ego"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="ego_controlBall">
-    <rdfs:range rdf:resource="#Ball"/>
-    <rdfs:domain rdf:resource="#Ego"/>
-    <rdfs:subPropertyOf rdf:resource="#ego_ownsBall"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#beUniformZone">
     <rdfs:range rdf:resource="#UniformPlayerZone"/>
     <rdfs:domain rdf:resource="#PlayerZone"/>
@@ -917,7 +912,6 @@
   <core2ed:ComputedClassGeneration rdf:ID="computedClassGeneration"/>
   <core2ed:ElaborationGeneration rdf:ID="elaborationGeneration"/>
   <core2ed:NDGeneration rdf:ID="ndGeneration"/>
-  <core2ed:NDActivation rdf:ID="ndActivation"/>
   <core2ed:CUWorldGeneration rdf:ID="cuWorlGeneration"/>
   <core2ed:LevelGeneration rdf:ID="levelGeneration"/>
 </rdf:RDF>
