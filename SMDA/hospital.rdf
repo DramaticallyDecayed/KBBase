@@ -29,6 +29,10 @@
     <rdfs:domain rdf:resource="#Patient"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
+  <Patient rdf:about="#11">
+    <registerNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sadfasf</registerNumber>
+  </Patient>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
