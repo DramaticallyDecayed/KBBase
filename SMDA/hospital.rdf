@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:hospital="http://dramaticallydecayed.com/hospital#"
+    xmlns="http://dramaticallydecayed.com/hospital#"
     xmlns:spin="http://spinrdf.org/spin#"
     xmlns:sp="http://spinrdf.org/sp#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -11,10 +11,24 @@
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://dramaticallydecayed.com/hospital">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
   </owl:Ontology>
+  <owl:Class rdf:ID="HospitalConcepts">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient">
+    <rdfs:subClassOf rdf:resource="#HospitalConcepts"/>
+  </owl:Class>
+  <rdf:Property rdf:ID="registerNumber">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Property>
+  <owl:DatatypeProperty rdf:ID="episodeNumber">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
