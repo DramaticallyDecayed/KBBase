@@ -11,11 +11,11 @@
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://dramaticallydecayed.com/diagnostics">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
   </owl:Ontology>
-  <owl:Class rdf:ID="RawValueSequence">
+  <owl:Class rdf:ID="Tag">
     <rdfs:subClassOf>
       <owl:Class rdf:ID="DiagnosticsConcept"/>
     </rdfs:subClassOf>
@@ -23,11 +23,14 @@
   <owl:Class rdf:about="#DiagnosticsConcept">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
-  <owl:Class rdf:ID="Tag">
+  <owl:Class rdf:ID="RawValueSequence">
     <rdfs:subClassOf rdf:resource="#DiagnosticsConcept"/>
   </owl:Class>
   <owl:Class rdf:ID="Parameter">
     <rdfs:subClassOf rdf:resource="#DiagnosticsConcept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Report">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
   </owl:Class>
   <owl:Class rdf:ID="DictionaryType">
     <rdfs:subClassOf rdf:resource="#DiagnosticsConcept"/>
@@ -42,28 +45,28 @@
     <rdfs:domain rdf:resource="#MappedValue"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasParameter">
-    <rdfs:range rdf:resource="#Parameter"/>
     <rdfs:domain rdf:resource="#Diagnostics"/>
+    <rdfs:range rdf:resource="#Parameter"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasRawValueSequence">
-    <rdfs:range rdf:resource="#RawValueSequence"/>
     <rdfs:domain rdf:resource="#Parameter"/>
+    <rdfs:range rdf:resource="#RawValueSequence"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasTag">
-    <rdfs:range rdf:resource="#MappedValue"/>
     <rdfs:domain rdf:resource="#Tag"/>
+    <rdfs:range rdf:resource="#MappedValue"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasMappedValue">
-    <rdfs:range rdf:resource="#MappedValue"/>
     <rdfs:domain rdf:resource="#Parameter"/>
+    <rdfs:range rdf:resource="#MappedValue"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="mappedOn">
-    <rdfs:range rdf:resource="#RawValueSequence"/>
     <rdfs:domain rdf:resource="#MappedValue"/>
+    <rdfs:range rdf:resource="#RawValueSequence"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:ID="index">
-    <rdfs:domain rdf:resource="#MappedValue"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="#MappedValue"/>
   </owl:DatatypeProperty>
 </rdf:RDF>
 

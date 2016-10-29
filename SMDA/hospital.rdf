@@ -11,28 +11,66 @@
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://dramaticallydecayed.com/hospital">
   <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
-    <owl:imports rdf:resource="http://spinrdf.org/spl"/>
   </owl:Ontology>
-  <owl:Class rdf:ID="HospitalConcepts">
+  <owl:Class rdf:ID="HospitalConcept">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
-  <owl:Class rdf:ID="Patient">
-    <rdfs:subClassOf rdf:resource="#HospitalConcepts"/>
+  <owl:Class rdf:ID="Diagnosis">
+    <rdfs:subClassOf rdf:resource="#HospitalConcept"/>
   </owl:Class>
-  <rdf:Property rdf:ID="registerNumber">
+  <owl:Class rdf:ID="LaboratoryResearch">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HospitalEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#HospitalEvent">
+    <rdfs:subClassOf rdf:resource="#HospitalConcept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Episode">
+    <rdfs:subClassOf rdf:resource="#HospitalEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient">
+    <rdfs:subClassOf rdf:resource="#HospitalConcept"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasDiagnosis">
+    <rdfs:range rdf:resource="#Diagnosis"/>
     <rdfs:domain rdf:resource="#Patient"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Property>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasEpisode">
+    <rdfs:range rdf:resource="#Episode"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasLaboratoryResearch">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#LaboratoryResearch"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="episodeCloseDate">
+    <rdfs:domain rdf:resource="#Episode"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="episodeOpenDate">
+    <rdfs:domain rdf:resource="#Episode"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="laboratoryNumber">
+    <rdfs:domain rdf:resource="#LaboratoryResearch"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="episodeNumber">
-    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:domain rdf:resource="#Episode"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
-  <Patient rdf:about="#11">
-    <registerNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >sadfasf</registerNumber>
-  </Patient>
+  <owl:DatatypeProperty rdf:ID="registerNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="laboratoryDate">
+    <rdfs:domain rdf:resource="#LaboratoryResearch"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
