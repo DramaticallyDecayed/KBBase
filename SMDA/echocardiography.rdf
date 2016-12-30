@@ -1,68 +1,55 @@
 <?xml version="1.0"?>
 <rdf:RDF
-    xmlns="http://dramaticallydecayed.com/echocardiography#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:spin="http://spinrdf.org/spin#"
-    xmlns:sp="http://spinrdf.org/sp#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:arg="http://spinrdf.org/arg#"
+    xmlns:sp="http://spinrdf.org/sp#"
     xmlns:diagnostics="http://dramaticallydecayed.com/diagnostics#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://dramaticallydecayed.com/echocardiography#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spin="http://spinrdf.org/spin#"
     xmlns:spl="http://spinrdf.org/spl#"
+    xmlns:arg="http://spinrdf.org/arg#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
   xml:base="http://dramaticallydecayed.com/echocardiography">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://dramaticallydecayed.com/diagnostics"/>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Created with TopBraid Composer</owl:versionInfo>
     <owl:imports rdf:resource="http://spinrdf.org/spl"/>
+    <owl:versionInfo>Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://dramaticallydecayed.com/diagnostics"/>
   </owl:Ontology>
-  <owl:Class rdf:ID="MinuteVolumeArea">
+  <owl:Class rdf:ID="SemilunarValveParameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ValveParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EndSystolicVolume">
     <rdfs:subClassOf>
       <owl:Class rdf:ID="EchocardiographyParameter"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="PulmonaryValveRegurgitation">
+  <owl:Class rdf:ID="EchocardiographyConcept">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StrokeVolume">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="CardiacMuscleMassIndex">
+  <owl:Class rdf:ID="PulmonaryValveVMax">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="AorticValveMaxLinearVelocity">
+  <owl:Class rdf:ID="AtrioventricularValveParameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ValveParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TricuspidValveDiffPMax">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="EjectionFractionSimpson">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#EchocardiographyParameter"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="ValveParameter">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#EchocardiographyParameter"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="RightAtrium">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#EchocardiographyParameter"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="LeftAtriumDiameter">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#EchocardiographyParameter"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="EjectionFractionTeichholz">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#EchocardiographyParameter"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="SystolicPressureEstimated">
+  <owl:Class rdf:ID="RightVentriclePosteriorWall">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
@@ -72,7 +59,42 @@
       <owl:Class rdf:ID="EchocardiographyDictionary"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="EndSystolicVolume">
+  <owl:Class rdf:ID="RightAtriumVolumeIndex">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EndSystolicDimension">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EjectionFractionSimpson">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="InterventricularSeptum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MinuteVolumeArea">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EjectionFractionTeichholz">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PosteriorWall">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AscendingAorta">
     <rdfs:subClassOf>
       <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
@@ -82,153 +104,194 @@
       <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:about="#EchocardiographyParameter">
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/diagnostics#Parameter"/>
+  <owl:Class rdf:ID="HeartRate">
     <rdfs:subClassOf>
-      <owl:Class rdf:ID="EchocardiographyConcept"/>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:about="#EchocardiographyConcept">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:Class rdf:ID="InteratrialSeptum">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="Kinetics">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="AortaDiameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="MitralValveLeaflets">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="MitralValveVE">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+    <rdfs:label>максимальной скорости кровотока раннего наполнения</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:ID="EndSystolicDimension">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="CardiacMuscleMassIndex">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="Aorta">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="PulmonaryValveRegurgitation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="PulmonaryValveVMax">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="EndDiastolicVolume">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="CollapseAtInhilation">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="AorticValveMaxLinearVelocity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="MitralValveRegurgitation">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="RightVentricleParasternalPosition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="AscendingAorta">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="TricuspidValveDiffPtr">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="MitralValveVE2VA">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="SystolicPressureEstimated">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#EchocardiographyDictionary">
-    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/diagnostics#DictionaryType"/>
     <rdfs:subClassOf rdf:resource="#EchocardiographyConcept"/>
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/diagnostics#DictionaryType"/>
   </owl:Class>
-  <owl:Class rdf:ID="HeartRate">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  <owl:Class rdf:ID="MitralValveVA">
+    <rdfs:label>максимальной скорости потока предсердной систолы</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="AtrioventricularValveParameter">
-    <rdfs:subClassOf rdf:resource="#ValveParameter"/>
+  <owl:Class rdf:ID="Rhythm">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
-  <owl:Class rdf:ID="TricuspidValveLeaflets">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="RightVentricleFourChamberSlice">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="RightAtriumVolumeIndex">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="AortaWall">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="E2Em">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >максимальная скорость раннего диастолического наполнения ЛЖ к максимальной скорости раннего диастолического смещения латерального сегмента кольца митрального клапана</rdfs:label>
+  <owl:Class rdf:ID="TricuspidValveVMax">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:ID="PulmonaryValveDiffPMax">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LeftAtriumVolumeIndex">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PulmonaryArteryDiameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="InferiorVenaCavaDiameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MitralValveTdec">
+    <rdfs:label>время падения скорости кровотока в фазу быстрого наполнения</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RightVentricleFourChamberSlice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TricuspidValveLeaflets">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LeftAtriumDiameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EndDiastolicDimension">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Kinetics">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ValveParameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CollapseAtInhilation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AorticValveRegurgitation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AorticValveLeaflets">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CardiacMuscleMass">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MitralValveRegurgitation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EchocardiographyParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EchocardiographyParameter">
+    <rdfs:subClassOf rdf:resource="#EchocardiographyConcept"/>
+    <rdfs:subClassOf rdf:resource="http://dramaticallydecayed.com/diagnostics#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AortaWall">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
   <owl:Class rdf:ID="TricuspidValveRegurgitation">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
-  <owl:Class rdf:ID="EndDiastolicDimension">
+  <owl:Class rdf:ID="MitralValveLeaflets">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
-  <owl:Class rdf:ID="Rhythm">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="PosteriorWall">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="AorticValveRegurgitation">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="TricuspidValveVMax">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="StrokeVolume">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="MitralValveVA">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >максимальной скорости потока предсердной систолы</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="EndDiastolicVolume">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="CardiacMuscleMass">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="SemilunarValveParameter">
-    <rdfs:subClassOf rdf:resource="#ValveParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="TricuspidValveDiffPMax">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="MitralValveTdec">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >время падения скорости кровотока в фазу быстрого наполнения</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="PulmonaryArteryDiameter">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="LeftAtriumVolumeIndex">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="RightVentriclePosteriorWall">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="InteratrialSeptum">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="InterventricularSeptum">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="RightVentricleParasternalPosition">
-    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
-  </owl:Class>
-  <owl:Class rdf:ID="MitralValveVE">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >максимальной скорости кровотока раннего наполнения</rdfs:label>
+  <owl:Class rdf:ID="MitralValveVE2VA">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
   <owl:Class rdf:ID="AorticValveMaxPressureDifference">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
-  <owl:Class rdf:ID="InferiorVenaCavaDiameter">
+  <owl:Class rdf:ID="TricuspidValveDiffPtr">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
-  <owl:Class rdf:ID="AortaDiameter">
+  <owl:Class rdf:ID="E2Em">
+    <rdfs:label>максимальная скорость раннего диастолического наполнения ЛЖ к максимальной скорости раннего диастолического смещения латерального сегмента кольца митрального клапана</rdfs:label>
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
-  <owl:Class rdf:ID="AorticValveLeaflets">
+  <owl:Class rdf:ID="Aorta">
     <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
   </owl:Class>
+  <owl:Class rdf:ID="RightAtrium">
+    <rdfs:subClassOf rdf:resource="#EchocardiographyParameter"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="ObjectProperty_1">
+    <rdfs:range rdf:resource="#AortaWall"/>
+    <rdfs:domain rdf:resource="#AortaDiameter"/>
+  </owl:ObjectProperty>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
