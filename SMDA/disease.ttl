@@ -1,0 +1,36 @@
+# baseURI: http://dramaticallydecayed.com/disease
+# imports: http://spinrdf.org/spl
+
+@prefix : <http://dramaticallydecayed.com/disease#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix disease: <http://dramaticallydecayed.com/disease#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dramaticallydecayed.com/disease>
+  rdf:type owl:Ontology ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+disease:Disease
+  rdf:type owl:Class ;
+  rdfs:subClassOf disease:DiseaseConcept ;
+.
+disease:DiseaseConcept
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+disease:DiseaseEvent
+  rdf:type owl:Class ;
+  rdfs:subClassOf disease:DiseaseConcept ;
+.
+disease:diseaseEventTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain disease:DiseaseEvent ;
+  rdfs:range xsd:date ;
+.
