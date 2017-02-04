@@ -1,0 +1,50 @@
+# baseURI: http://dramaticallydecayed.com/parameter-graph
+# imports: http://dramaticallydecayed.com/core2ed
+# imports: http://dramaticallydecayed.com/parameterized-system
+
+@prefix : <http://dramaticallydecayed.com/parameter-graph#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix core2ed: <http://dramaticallydecayed.com/core2ed#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix parameter-graph: <http://dramaticallydecayed.com/parameter-graph#> .
+@prefix parameterized-system: <http://dramaticallydecayed.com/parameterized-system#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dramaticallydecayed.com/parameter-graph>
+  rdf:type owl:Ontology ;
+  owl:imports <http://dramaticallydecayed.com/core2ed> ;
+  owl:imports <http://dramaticallydecayed.com/parameterized-system> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+parameter-graph:computedClassGeneration
+  rdf:type core2ed:ComputedClassGeneration ;
+.
+parameter-graph:cuWorldGeneration
+  rdf:type core2ed:CUWorldGeneration ;
+.
+parameter-graph:dfGeneration
+  rdf:type core2ed:DFGeneration ;
+.
+parameter-graph:elaborationGeneration
+  rdf:type core2ed:ElaborationGeneration ;
+.
+parameter-graph:levelGeneration
+  rdf:type core2ed:LevelGeneration ;
+.
+parameter-graph:ndActivation
+  rdf:type core2ed:NDActivation ;
+.
+parameter-graph:ndGeneration
+  rdf:type core2ed:NDGeneration ;
+.
+parameterized-system:IntervalRule
+  rdfs:subClassOf core2ed:UserDefined ;
+.
+parameterized-system:SystemParameter
+  rdfs:subClassOf core2ed:Known ;
+.

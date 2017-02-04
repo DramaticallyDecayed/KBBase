@@ -1,0 +1,124 @@
+# baseURI: http://dramaticallydecayed.com/parameterized-system
+# imports: http://spinrdf.org/spl
+
+@prefix : <http://dramaticallydecayed.com/parameterized-system#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix parameterized-system: <http://dramaticallydecayed.com/parameterized-system#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dramaticallydecayed.com/parameterized-system>
+  rdf:type owl:Ontology ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+parameterized-system:Graph
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:ParameterizedConcept ;
+.
+parameterized-system:GraphRelation
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:ParameterizedConcept ;
+.
+parameterized-system:IntervalGraph
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:Graph ;
+.
+parameterized-system:IntervalRule
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:ParameterizedConcept ;
+.
+parameterized-system:ParameterGraph
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:Graph ;
+.
+parameterized-system:ParameterInterval
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:SystemElement ;
+.
+parameterized-system:ParameterizedConcept
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+parameterized-system:Subsystem
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:System ;
+.
+parameterized-system:System
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:ParameterizedConcept ;
+.
+parameterized-system:SystemElement
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:ParameterizedConcept ;
+.
+parameterized-system:SystemGraph
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:ParameterGraph ;
+.
+parameterized-system:SystemParameter
+  rdf:type owl:Class ;
+  rdfs:subClassOf parameterized-system:SystemElement ;
+.
+parameterized-system:graphConcentrator
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:Graph ;
+  rdfs:range parameterized-system:SystemElement ;
+  rdfs:subPropertyOf parameterized-system:parameterizedProperty ;
+.
+parameterized-system:graphLinear
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:Graph ;
+  rdfs:range parameterized-system:SystemElement ;
+  rdfs:subPropertyOf parameterized-system:parameterizedProperty ;
+.
+parameterized-system:includeInterval
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:SystemParameter ;
+  rdfs:range parameterized-system:ParameterInterval ;
+  rdfs:subPropertyOf parameterized-system:parameterizedProperty ;
+.
+parameterized-system:includeSystem
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:System ;
+  rdfs:range parameterized-system:Subsystem ;
+  rdfs:subPropertyOf parameterized-system:parameterizedProperty ;
+.
+parameterized-system:intervalGraphConcentrator
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:IntervalGraph ;
+  rdfs:range parameterized-system:ParameterInterval ;
+  rdfs:subPropertyOf parameterized-system:graphConcentrator ;
+.
+parameterized-system:intervalGraphLinear
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:IntervalGraph ;
+  rdfs:range parameterized-system:ParameterInterval ;
+  rdfs:subPropertyOf parameterized-system:graphLinear ;
+.
+parameterized-system:intervalRule
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:SystemParameter ;
+  rdfs:range parameterized-system:IntervalRule ;
+  rdfs:subPropertyOf parameterized-system:parameterizedProperty ;
+.
+parameterized-system:parameterGraphInterval
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:ParameterGraph ;
+  rdfs:range parameterized-system:SystemParameter ;
+  rdfs:subPropertyOf parameterized-system:graphLinear ;
+.
+parameterized-system:parameterizedProperty
+  rdf:type rdf:Property ;
+.
+parameterized-system:parametrGraphConcentrator
+  rdf:type rdf:Property ;
+  rdfs:domain parameterized-system:ParameterGraph ;
+  rdfs:range parameterized-system:SystemParameter ;
+  rdfs:subPropertyOf parameterized-system:graphConcentrator ;
+.
