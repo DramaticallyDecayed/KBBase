@@ -147,6 +147,8 @@
 .
 :parameterizedProperty
   rdf:type owl:ObjectProperty ;
+  rdfs:domain :ParameterizedConcept ;
+  rdfs:range :ParameterizedConcept ;
 .
 :produceIntervals
   rdf:type owl:ObjectProperty ;
