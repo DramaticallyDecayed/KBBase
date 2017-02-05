@@ -57,15 +57,15 @@ parameterized-system:concentrateParameterRuleFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
 .
+parameterized-system:hasIntervalRule
+  rdfs:subPropertyOf core2ed:associative ;
+.
 parameterized-system:includeInterval
   rdfs:subPropertyOf core2ed:generative ;
   owl:propertyChainAxiom (
-      parameterized-system:intervalRule
+      parameterized-system:hasIntervalRule
       parameterized-system:produceIntervals
     ) ;
-.
-parameterized-system:intervalRule
-  rdfs:subPropertyOf core2ed:associative ;
 .
 parameterized-system:linearParameterFor
   rdfs:subPropertyOf core2ed:complex ;

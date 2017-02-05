@@ -85,22 +85,34 @@
   rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:graphConcentrator
+:graphConcentratorFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
   rdfs:range :SystemElement ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:graphLinear
+:graphLinearFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
   rdfs:range :SystemElement ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:graphRelation
+:hasGraphRelation
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
   rdfs:range :GraphRelation ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasIntervalRule
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :SystemParameter ;
+  rdfs:range :IntervalRule ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasTimeSeries
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :SystemParameter ;
+  rdfs:range :TimeSeries ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :includeInterval
@@ -119,31 +131,25 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ParameterInterval ;
   rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphConcentrator ;
-.
-:intervalRule
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :SystemParameter ;
-  rdfs:range :IntervalRule ;
-  rdfs:subPropertyOf :parameterizedProperty ;
+  rdfs:subPropertyOf :graphConcentratorFor ;
 .
 :linearInervalFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ParameterInterval ;
   rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphLinear ;
+  rdfs:subPropertyOf :graphLinearFor ;
 .
 :linearParameterFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
   rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphLinear ;
+  rdfs:subPropertyOf :graphLinearFor ;
 .
 :parameterConcentratorFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
   rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphConcentrator ;
+  rdfs:subPropertyOf :graphConcentratorFor ;
 .
 :parameterizedProperty
   rdf:type owl:ObjectProperty ;
@@ -154,11 +160,5 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :IntervalRule ;
   rdfs:range :ParameterInterval ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-.
-:timeSeries
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :SystemParameter ;
-  rdfs:range :TimeSeries ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
