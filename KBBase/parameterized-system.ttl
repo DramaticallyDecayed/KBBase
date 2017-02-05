@@ -16,6 +16,18 @@
   owl:imports <http://spinrdf.org/spl> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
+:ConcentrateParameterRule
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UserRules ;
+.
+:Correlation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Statistics ;
+.
+:Functional
+  rdf:type owl:Class ;
+  rdfs:subClassOf :GraphRelation ;
+.
 :Graph
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
@@ -26,7 +38,11 @@
 .
 :IntervalRule
   rdf:type owl:Class ;
-  rdfs:subClassOf :ParameterizedConcept ;
+  rdfs:subClassOf :UserRules ;
+.
+:Logic
+  rdf:type owl:Class ;
+  rdfs:subClassOf :GraphRelation ;
 .
 :ParameterInterval
   rdf:type owl:Class ;
@@ -34,6 +50,10 @@
 .
 :ParameterizedConcept
   rdf:type owl:Class ;
+.
+:Statistics
+  rdf:type owl:Class ;
+  rdfs:subClassOf :GraphRelation ;
 .
 :Subsystem
   rdf:type owl:Class ;
@@ -51,6 +71,20 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemElement ;
 .
+:TimeSeries
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ParameterizedConcept ;
+.
+:UserRules
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ParameterizedConcept ;
+.
+:concentrateParameterRuleFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ConcentrateParameterRule ;
+  rdfs:range :Graph ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :graphConcentrator
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
@@ -61,6 +95,12 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
   rdfs:range :SystemElement ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:graphRelation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Graph ;
+  rdfs:range :GraphRelation ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :includeInterval
@@ -112,5 +152,11 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :IntervalRule ;
   rdfs:range :ParameterInterval ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:timeSeries
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :SystemParameter ;
+  rdfs:range :TimeSeries ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .

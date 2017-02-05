@@ -35,23 +35,27 @@
 :levelGeneration
   rdf:type core2ed:LevelGeneration ;
 .
-:ndActivation
-  rdf:type core2ed:NDActivation ;
-.
 :ndGeneration
   rdf:type core2ed:NDGeneration ;
+.
+parameterized-system:ConcentrateParameterRule
+  rdfs:subClassOf core2ed:Percepted ;
 .
 parameterized-system:Graph
   rdfs:subClassOf core2ed:Complex ;
 .
 parameterized-system:IntervalRule
-  rdfs:subClassOf core2ed:UserDefined ;
+  rdfs:subClassOf core2ed:Percepted ;
 .
 parameterized-system:ParameterizedConcept
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 parameterized-system:SystemParameter
   rdfs:subClassOf core2ed:Known ;
+.
+parameterized-system:concentrateParameterRuleFor
+  rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
 .
 parameterized-system:includeInterval
   rdfs:subPropertyOf core2ed:generative ;
