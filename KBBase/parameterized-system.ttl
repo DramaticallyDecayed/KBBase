@@ -16,6 +16,26 @@
   owl:imports <http://spinrdf.org/spl> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
+:AcidityApprox
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:AmorphousPhosphates
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:Analysis
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemDescriptor ;
+.
+:Bacteria
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:Bilirubin
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
 :ConcentrateParameterRule
   rdf:type owl:Class ;
   rdfs:subClassOf :UserRules ;
@@ -24,9 +44,17 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :Statistics ;
 .
+:Creatinine
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
 :Functional
   rdf:type owl:Class ;
   rdfs:subClassOf :GraphRelation ;
+.
+:Glucose
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
 .
 :Graph
   rdf:type owl:Class ;
@@ -40,9 +68,17 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :UserRules ;
 .
+:KetoneBodies
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
 :Logic
   rdf:type owl:Class ;
   rdfs:subClassOf :GraphRelation ;
+.
+:Oxalate
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
 .
 :ParameterInterval
   rdf:type owl:Class ;
@@ -50,6 +86,26 @@
 .
 :ParameterizedConcept
   rdf:type owl:Class ;
+.
+:Patient
+  rdf:type owl:Class ;
+  rdfs:subClassOf :System ;
+.
+:Protein
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:ProteinAnalyzer
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:RedBloodCells
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:SpecificGravity
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
 .
 :Statistics
   rdf:type owl:Class ;
@@ -63,6 +119,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
 .
+:SystemDescriptor
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ParameterizedConcept ;
+.
 :SystemElement
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
@@ -71,13 +131,29 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemElement ;
 .
-:TimeSeries
+:Urata
   rdf:type owl:Class ;
-  rdfs:subClassOf :ParameterizedConcept ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:UricAcidCrystals
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:UrineColor
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
+.
+:Urobilinogen
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
 .
 :UserRules
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
+.
+:WhiteBloodCells
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SystemParameter ;
 .
 :concentrateParameterRuleFor
   rdf:type owl:ObjectProperty ;
@@ -97,6 +173,12 @@
   rdfs:range :SystemElement ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Analysis ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :hasGraphRelation
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
@@ -109,16 +191,33 @@
   rdfs:range :IntervalRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasRegisterNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Analysis ;
+  rdfs:domain :Patient ;
+  rdfs:range xsd:string ;
+.
 :hasTimeSeries
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
-  rdfs:range :TimeSeries ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasValue
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :SystemParameter ;
+  rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :includeInterval
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
   rdfs:range :ParameterInterval ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:includeParameter
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Analysis ;
+  rdfs:range :SystemParameter ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :includeSystem
