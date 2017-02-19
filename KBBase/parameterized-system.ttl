@@ -196,6 +196,7 @@
   rdfs:domain :Analysis ;
   rdfs:domain :Patient ;
   rdfs:range xsd:string ;
+  rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasValue
   rdf:type owl:DatatypeProperty ;
