@@ -197,11 +197,6 @@
   rdfs:domain :Patient ;
   rdfs:range xsd:string ;
 .
-:hasTimeSeries
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :SystemParameter ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-.
 :hasValue
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :SystemParameter ;
