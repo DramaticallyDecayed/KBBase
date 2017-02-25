@@ -161,6 +161,12 @@
   rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:descibePatient
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Analysis ;
+  rdfs:range :Patient ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :graphConcentratorFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
