@@ -36,10 +36,6 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
-:ConcentrateParameterRule
-  rdf:type owl:Class ;
-  rdfs:subClassOf :UserRules ;
-.
 :Correlation
   rdf:type owl:Class ;
   rdfs:subClassOf :Statistics ;
@@ -64,7 +60,7 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
 .
-:IntervalRule
+:GraphStructureRule
   rdf:type owl:Class ;
   rdfs:subClassOf :UserRules ;
 .
@@ -90,6 +86,10 @@
 :Patient
   rdf:type owl:Class ;
   rdfs:subClassOf :System ;
+.
+:PatientGroupRule
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UserRules ;
 .
 :Protein
   rdf:type owl:Class ;
@@ -157,7 +157,7 @@
 .
 :concentrateParameterRuleFor
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :ConcentrateParameterRule ;
+  rdfs:domain :GraphStructureRule ;
   rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
@@ -173,10 +173,22 @@
   rdfs:range :SystemElement ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasAge
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Patient ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :hasDate
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Analysis ;
   rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasDiagnosis
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Patient ;
+  rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasGraphRelation
@@ -188,12 +200,25 @@
 :hasIntervalRule
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
-  rdfs:range :IntervalRule ;
+  rdfs:range :PatientGroupRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasRegisterNumber
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Analysis ;
+  rdfs:domain :Patient ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasRuleString
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :GraphStructureRule ;
+  rdfs:domain :PatientGroupRule ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasSex
+  rdf:type owl:DatatypeProperty ;
   rdfs:domain :Patient ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
@@ -253,7 +278,7 @@
 .
 :produceIntervals
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :IntervalRule ;
+  rdfs:domain :PatientGroupRule ;
   rdfs:range :ParameterInterval ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
