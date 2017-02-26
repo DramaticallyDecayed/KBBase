@@ -20,6 +20,51 @@
   owl:imports <http://dramaticallydecayed.com/parameterized-system> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
+:TestNDReification
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "d"^^xsd:string ;
+              ] ;
+            sp:predicate core2ed:hasDerivative ;
+            sp:subject [
+                sp:varName "nd"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression :node_cu_Analysis ;
+            sp:variable [
+                sp:varName "nd"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "cu"^^xsd:string ;
+              ] ;
+            sp:predicate core2ed:implement ;
+            sp:subject [
+                sp:varName "nd"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "d"^^xsd:string ;
+              ] ;
+            sp:predicate core2ed:hasDerivative ;
+            sp:subject [
+                sp:varName "cu"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf core2ed:DevelopmentEntity ;
+.
 :computedClassGeneration
   rdf:type core2ed:ComputedClassGeneration ;
 .
@@ -38,23 +83,37 @@
 :ndGeneration
   rdf:type core2ed:NDGeneration ;
 .
-parameterized-system:ConcentrateParameterRule
+parameterized-system:Analysis
   rdfs:subClassOf core2ed:Percepted ;
 .
 parameterized-system:Graph
   rdfs:subClassOf core2ed:Complex ;
 .
-parameterized-system:IntervalRule
+parameterized-system:GraphStructureRule
+  rdfs:subClassOf core2ed:Percepted ;
+.
+parameterized-system:GroupRule
   rdfs:subClassOf core2ed:Percepted ;
 .
 parameterized-system:ParameterizedConcept
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
-parameterized-system:SystemParameter
-  rdfs:subClassOf core2ed:Known ;
+parameterized-system:PatientGroupRule
+  rdfs:subClassOf core2ed:Complex ;
+.
+parameterized-system:basedOnGroupRule
+  rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
+.
+parameterized-system:basedOnPatient
+  rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
 .
 parameterized-system:concentrateParameterRuleFor
   rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
+.
+parameterized-system:describePatient
   rdfs:subPropertyOf core2ed:generative ;
 .
 parameterized-system:hasIntervalRule
@@ -66,6 +125,9 @@ parameterized-system:includeInterval
       parameterized-system:hasIntervalRule
       parameterized-system:produceIntervals
     ) ;
+.
+parameterized-system:includeParameter
+  rdfs:subPropertyOf core2ed:generative ;
 .
 parameterized-system:linearParameterFor
   rdfs:subPropertyOf core2ed:complex ;

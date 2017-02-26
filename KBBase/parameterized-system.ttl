@@ -64,6 +64,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :UserRules ;
 .
+:GroupRule
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UserRules ;
+.
 :KetoneBodies
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
@@ -155,13 +159,25 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
+:basedOnGroupRule
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :PatientGroupRule ;
+  rdfs:range :GroupRule ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:basedOnPatient
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :PatientGroupRule ;
+  rdfs:range :Patient ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :concentrateParameterRuleFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :GraphStructureRule ;
   rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:descibePatient
+:describePatient
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Analysis ;
   rdfs:range :Patient ;
@@ -206,7 +222,7 @@
 :hasIntervalRule
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
-  rdfs:range :PatientGroupRule ;
+  rdfs:range :GroupRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasRegisterNumber
@@ -219,7 +235,7 @@
 :hasRuleString
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :GraphStructureRule ;
-  rdfs:domain :PatientGroupRule ;
+  rdfs:domain :GroupRule ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
@@ -284,7 +300,7 @@
 .
 :produceIntervals
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :PatientGroupRule ;
+  rdfs:domain :GroupRule ;
   rdfs:range :ParameterInterval ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
