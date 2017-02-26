@@ -256,11 +256,6 @@
   rdfs:range :SystemParameter ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:includeSystem
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :System ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-.
 :linearParameter
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
