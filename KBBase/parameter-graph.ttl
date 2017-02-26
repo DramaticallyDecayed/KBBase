@@ -101,11 +101,11 @@ parameterized-system:ParameterizedConcept
 parameterized-system:PatientGroupRule
   rdfs:subClassOf core2ed:Complex ;
 .
-parameterized-system:basedOnGroupRule
+parameterized-system:beGroupRuleBaseFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
 .
-parameterized-system:basedOnPatient
+parameterized-system:bePatientBaseFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
 .

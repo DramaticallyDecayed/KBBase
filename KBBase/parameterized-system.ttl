@@ -159,16 +159,16 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
-:basedOnGroupRule
+:beGroupRuleBaseFor
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :PatientGroupRule ;
-  rdfs:range :GroupRule ;
+  rdfs:domain :GroupRule ;
+  rdfs:range :PatientGroupRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:basedOnPatient
+:bePatientBaseFor
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :PatientGroupRule ;
-  rdfs:range :Patient ;
+  rdfs:domain :Patient ;
+  rdfs:range :PatientGroupRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :concentrateParameterRuleFor
