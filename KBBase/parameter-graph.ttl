@@ -80,6 +80,9 @@
 :levelGeneration
   rdf:type core2ed:LevelGeneration ;
 .
+:ndActivation
+  rdf:type core2ed:NDActivation ;
+.
 :ndGeneration
   rdf:type core2ed:NDGeneration ;
 .
@@ -95,11 +98,22 @@ parameterized-system:GraphStructureRule
 parameterized-system:GroupRule
   rdfs:subClassOf core2ed:Percepted ;
 .
+parameterized-system:ParameterBatch
+  rdfs:subClassOf core2ed:Complex ;
+.
 parameterized-system:ParameterizedConcept
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 parameterized-system:PatientGroupRule
   rdfs:subClassOf core2ed:Complex ;
+.
+parameterized-system:analysisFormBatch
+  rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
+  owl:propertyChainAxiom (
+      parameterized-system:includeParameter
+      parameterized-system:parameterFormBatch
+    ) ;
 .
 parameterized-system:beGroupRuleBaseFor
   rdfs:subPropertyOf core2ed:complex ;
@@ -109,6 +123,9 @@ parameterized-system:bePatientBaseFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
 .
+parameterized-system:bePatientGroupRuleFor
+  rdfs:subPropertyOf core2ed:associative ;
+.
 parameterized-system:concentrateParameterRuleFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
@@ -116,14 +133,12 @@ parameterized-system:concentrateParameterRuleFor
 parameterized-system:describePatient
   rdfs:subPropertyOf core2ed:generative ;
 .
-parameterized-system:hasIntervalRule
-  rdfs:subPropertyOf core2ed:associative ;
-.
-parameterized-system:includeInterval
+parameterized-system:hasBatch
+  rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
   owl:propertyChainAxiom (
-      parameterized-system:hasIntervalRule
-      parameterized-system:produceIntervals
+      parameterized-system:bePatientBaseFor
+      parameterized-system:restrictBatch
     ) ;
 .
 parameterized-system:includeParameter
@@ -133,7 +148,7 @@ parameterized-system:linearParameterFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
   owl:propertyChainAxiom (
-      parameterized-system:includeInterval
+      parameterized-system:parameterFormBatch
       parameterized-system:linearInervalFor
     ) ;
 .
@@ -141,8 +156,15 @@ parameterized-system:parameterConcentratorFor
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
   owl:propertyChainAxiom (
-      parameterized-system:includeInterval
+      parameterized-system:parameterFormBatch
       parameterized-system:intervalConcentratorFor
+    ) ;
+.
+parameterized-system:parameterFormBatch
+  rdfs:subPropertyOf core2ed:generative ;
+  owl:propertyChainAxiom (
+      parameterized-system:bePatientGroupRuleFor
+      parameterized-system:restrictBatch
     ) ;
 .
 parameterized-system:parameterizedProperty

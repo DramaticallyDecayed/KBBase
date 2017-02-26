@@ -80,7 +80,7 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
-:ParameterInterval
+:ParameterBatch
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemElement ;
 .
@@ -159,6 +159,12 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
+:analysisFormBatch
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Analysis ;
+  rdfs:range :ParameterBatch ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :beGroupRuleBaseFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :GroupRule ;
@@ -169,6 +175,12 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Patient ;
   rdfs:range :PatientGroupRule ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:bePatientGroupRuleFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :PatientGroupRule ;
+  rdfs:range :ParameterBatch ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :concentrateParameterRuleFor
@@ -201,6 +213,12 @@
   rdfs:range xsd:integer ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasBatch
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Patient ;
+  rdfs:range :ParameterBatch ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :hasDate
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Analysis ;
@@ -217,12 +235,6 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
   rdfs:range :GraphRelation ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-.
-:hasIntervalRule
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :SystemParameter ;
-  rdfs:range :GroupRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasQueryString
@@ -257,12 +269,6 @@
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:includeInterval
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :SystemParameter ;
-  rdfs:range :ParameterInterval ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-.
 :includeParameter
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Analysis ;
@@ -274,18 +280,6 @@
   rdfs:domain :System ;
   rdfs:range :Subsystem ;
   rdfs:subPropertyOf :parameterizedProperty ;
-.
-:intervalConcentratorFor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :ParameterInterval ;
-  rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphConcentratorFor ;
-.
-:linearInervalFor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :ParameterInterval ;
-  rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphLinearFor ;
 .
 :linearParameterFor
   rdf:type owl:ObjectProperty ;
@@ -299,14 +293,20 @@
   rdfs:range :Graph ;
   rdfs:subPropertyOf :graphConcentratorFor ;
 .
+:parameterFormBatch
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :SystemParameter ;
+  rdfs:range :ParameterBatch ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :parameterizedProperty
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ParameterizedConcept ;
   rdfs:range :ParameterizedConcept ;
 .
-:produceIntervals
+:restrictBatch
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :GroupRule ;
-  rdfs:range :ParameterInterval ;
+  rdfs:domain :PatientGroupRule ;
+  rdfs:range :ParameterBatch ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
