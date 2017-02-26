@@ -80,9 +80,6 @@
 :levelGeneration
   rdf:type core2ed:LevelGeneration ;
 .
-:ndActivation
-  rdf:type core2ed:NDActivation ;
-.
 :ndGeneration
   rdf:type core2ed:NDGeneration ;
 .
