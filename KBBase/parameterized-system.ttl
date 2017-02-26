@@ -141,13 +141,6 @@
   rdfs:range :ParameterBatch ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:baseOnBatch
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :Graph ;
-  rdfs:range :ParameterBatch ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-  owl:inverseOf :beBatchFor ;
-.
 :beBatchFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ParameterBatch ;
@@ -244,6 +237,7 @@
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :GraphStructureRule ;
   rdfs:domain :GroupRule ;
+  rdfs:domain :ParameterBatch ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
