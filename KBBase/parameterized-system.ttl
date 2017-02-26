@@ -263,6 +263,11 @@
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasSize
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :ParameterBatch ;
+  rdfs:range xsd:integer ;
+.
 :hasValue
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :SystemParameter ;
