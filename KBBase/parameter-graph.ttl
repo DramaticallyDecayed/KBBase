@@ -123,11 +123,11 @@ parameterized-system:bePatientBaseFor
 parameterized-system:bePatientGroupRuleFor
   rdfs:subPropertyOf core2ed:associative ;
 .
-parameterized-system:concentrateParameterRuleFor
-  rdfs:subPropertyOf core2ed:complex ;
+parameterized-system:describePatient
   rdfs:subPropertyOf core2ed:generative ;
 .
-parameterized-system:describePatient
+parameterized-system:graphStructureRuleFor
+  rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
 .
 parameterized-system:hasBatch
@@ -136,6 +136,14 @@ parameterized-system:hasBatch
   owl:propertyChainAxiom (
       parameterized-system:bePatientBaseFor
       parameterized-system:restrictBatch
+    ) ;
+.
+parameterized-system:hasGraph
+  rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
+  owl:propertyChainAxiom (
+      parameterized-system:hasBatch
+      parameterized-system:beBatchFor
     ) ;
 .
 parameterized-system:includeParameter

@@ -36,27 +36,15 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
-:Correlation
-  rdf:type owl:Class ;
-  rdfs:subClassOf :Statistics ;
-.
 :Creatinine
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
-.
-:Functional
-  rdf:type owl:Class ;
-  rdfs:subClassOf :GraphRelation ;
 .
 :Glucose
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
 .
 :Graph
-  rdf:type owl:Class ;
-  rdfs:subClassOf :ParameterizedConcept ;
-.
-:GraphRelation
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
 .
@@ -71,10 +59,6 @@
 :KetoneBodies
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
-.
-:Logic
-  rdf:type owl:Class ;
-  rdfs:subClassOf :GraphRelation ;
 .
 :Oxalate
   rdf:type owl:Class ;
@@ -110,14 +94,6 @@
 :SpecificGravity
   rdf:type owl:Class ;
   rdfs:subClassOf :SystemParameter ;
-.
-:Statistics
-  rdf:type owl:Class ;
-  rdfs:subClassOf :GraphRelation ;
-.
-:Subsystem
-  rdf:type owl:Class ;
-  rdfs:subClassOf :System ;
 .
 :System
   rdf:type owl:Class ;
@@ -165,6 +141,12 @@
   rdfs:range :ParameterBatch ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:beBatchFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ParameterBatch ;
+  rdfs:range :Graph ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
 :beGroupRuleBaseFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :GroupRule ;
@@ -183,28 +165,22 @@
   rdfs:range :ParameterBatch ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:concentrateParameterRuleFor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :GraphStructureRule ;
-  rdfs:range :Graph ;
-  rdfs:subPropertyOf :parameterizedProperty ;
-.
 :describePatient
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Analysis ;
   rdfs:range :Patient ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:graphConcentratorFor
+:graphConcentrator
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Graph ;
-  rdfs:range :SystemElement ;
+  rdfs:range :SystemParameter ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:graphLinearFor
+:graphStructureRuleFor
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :Graph ;
-  rdfs:range :SystemElement ;
+  rdfs:domain :GraphStructureRule ;
+  rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasAge
@@ -231,10 +207,10 @@
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:hasGraphRelation
+:hasGraph
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :Graph ;
-  rdfs:range :GraphRelation ;
+  rdfs:domain :Patient ;
+  rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasQueryString
@@ -283,20 +259,13 @@
 :includeSystem
   rdf:type owl:ObjectProperty ;
   rdfs:domain :System ;
-  rdfs:range :Subsystem ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
-:linearParameterFor
+:linearParameter
   rdf:type owl:ObjectProperty ;
   rdfs:domain :SystemParameter ;
-  rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphLinearFor ;
-.
-:parameterConcentratorFor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :SystemParameter ;
-  rdfs:range :Graph ;
-  rdfs:subPropertyOf :graphConcentratorFor ;
+  rdfs:range :SystemParameter ;
+  rdfs:subPropertyOf :parameterizedProperty ;
 .
 :parameterFormBatch
   rdf:type owl:ObjectProperty ;
