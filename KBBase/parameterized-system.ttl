@@ -225,6 +225,11 @@
   rdfs:range :GroupRule ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasQueryString
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :PatientGroupRule ;
+  rdfs:range xsd:string ;
+.
 :hasRegisterNumber
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Analysis ;
