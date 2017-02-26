@@ -213,6 +213,12 @@
   rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
+:hasID
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Graph ;
+  rdfs:domain :ParameterBatch ;
+  rdfs:range xsd:string ;
+.
 :hasQueryString
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :PatientGroupRule ;
