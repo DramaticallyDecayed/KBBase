@@ -229,6 +229,7 @@
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :PatientGroupRule ;
   rdfs:range xsd:string ;
+  rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasRegisterNumber
   rdf:type owl:DatatypeProperty ;
