@@ -148,7 +148,7 @@
 :beBatchFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ParameterBatch ;
-  rdfs:range :Graph ;
+  rdfs:range :GraphFragment ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :beGroupRuleBaseFor
@@ -178,7 +178,7 @@
 :graphStructureRuleFor
   rdf:type owl:ObjectProperty ;
   rdfs:domain :GraphStructureRule ;
-  rdfs:range :Graph ;
+  rdfs:range :GraphFragment ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasAge
@@ -214,19 +214,19 @@
 .
 :hasFragment
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :Graph ;
-  rdfs:range :GraphFragment ;
+  rdfs:domain :GraphFragment ;
+  rdfs:range :Graph ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasGraph
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Patient ;
-  rdfs:range :Graph ;
+  rdfs:range :GraphFragment ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasID
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain :Graph ;
+  rdfs:domain :GraphFragment ;
   rdfs:domain :ParameterBatch ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
