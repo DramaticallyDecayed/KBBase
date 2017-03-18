@@ -48,6 +48,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :ParameterizedConcept ;
 .
+:GraphFragment
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Graph ;
+.
 :GraphStructureRule
   rdf:type owl:Class ;
   rdfs:subClassOf :UserRules ;
@@ -198,6 +202,7 @@
 :hasDependentParameter
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Graph ;
+  rdfs:domain :GraphFragment ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
@@ -205,6 +210,12 @@
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Patient ;
   rdfs:range xsd:string ;
+  rdfs:subPropertyOf :parameterizedProperty ;
+.
+:hasFragment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Graph ;
+  rdfs:range :GraphFragment ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
 :hasGraph
@@ -223,6 +234,7 @@
 :hasIndependentParameter
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Graph ;
+  rdfs:domain :GraphFragment ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf :parameterizedProperty ;
 .
