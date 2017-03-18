@@ -50,7 +50,7 @@
 .
 :GraphFragment
   rdf:type owl:Class ;
-  rdfs:subClassOf :Graph ;
+  rdfs:subClassOf :ParameterizedConcept ;
 .
 :GraphStructureRule
   rdf:type owl:Class ;
