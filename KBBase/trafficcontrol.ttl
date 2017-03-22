@@ -1,0 +1,243 @@
+# baseURI: http://dramaticallydecayed.com/trafficcontrol
+# imports: http://dramaticallydecayed.com/core2ed
+
+@prefix : <http://dramaticallydecayed.com/trafficcontrol#> .
+@prefix core2ed: <http://dramaticallydecayed.com/core2ed#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dramaticallydecayed.com/trafficcontrol>
+  rdf:type owl:Ontology ;
+  owl:imports <http://dramaticallydecayed.com/core2ed> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:Accident
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:AccidentAssignment
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Assignment ;
+.
+:AccidentReport
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:Percepted ;
+.
+:Assignment
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:Car
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:CarReport
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:Percepted ;
+.
+:Jam
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:RepairAssignment
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Assignment ;
+.
+:RepairAssignmentReport
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:Percepted ;
+.
+:Road
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:TrafficLoad
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:assignedRepairOn
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RepairAssignment ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:complicatedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Road ;
+  rdfs:range :Accident ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:inverseOf :happenOn ;
+.
+:computedClassGeneration
+  rdf:type core2ed:ComputedClassGeneration ;
+.
+:cuWorldGeneration
+  rdf:type core2ed:CUWorldGeneration ;
+.
+:describeAccident
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :AccidentReport ;
+  rdfs:range :Accident ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:describeAccidentRoad
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :AccidentReport ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :describeAccident
+      :happenOn
+    ) ;
+.
+:describeCar
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :CarReport ;
+  rdfs:range :Car ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:describeCarRoad
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :CarReport ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :describeCar
+      :fillRoad
+    ) ;
+.
+:describeRepairAssignment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RepairAssignmentReport ;
+  rdfs:range :RepairAssignment ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:describeRepairedRoad
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RepairAssignmentReport ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :describeRepairAssignment
+      :assignedRepairOn
+    ) ;
+.
+:determineLoad
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Car ;
+  rdfs:range :TrafficLoad ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :fillRoad
+      :hasLoad
+    ) ;
+.
+:dfGeneration
+  rdf:type core2ed:DFGeneration ;
+.
+:elaborationGeneration
+  rdf:type core2ed:ElaborationGeneration ;
+.
+:fillRoad
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Car ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:happenOn
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Accident ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasCause
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Jam ;
+  rdfs:range :Accident ;
+  rdfs:subPropertyOf core2ed:associative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :jam
+      :complicatedBy
+    ) ;
+.
+:hasID
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Accident ;
+  rdfs:domain :Car ;
+  rdfs:domain :Road ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:hasJam
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Road ;
+  rdfs:range :Jam ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :hasLoad
+      :match
+    ) ;
+.
+:hasLoad
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Road ;
+  rdfs:range :TrafficLoad ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasRepairAssignment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Road ;
+  rdfs:range :RepairAssignment ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:inverseOf :assignedRepairOn ;
+.
+:hasSeverity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Jam ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:hasSped
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Car ;
+  rdfs:range xsd:float ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:jam
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Jam ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:inverseOf :hasJam ;
+.
+:levelGeneration
+  rdf:type core2ed:LevelGeneration ;
+.
+:match
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :TrafficLoad ;
+  rdfs:range :Jam ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:measuredLoad
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :TrafficLoad ;
+  rdfs:range xsd:float ;
+.
+:ndActivation
+  rdf:type core2ed:NDActivation ;
+.
+:ndGeneration
+  rdf:type core2ed:NDGeneration ;
+.
