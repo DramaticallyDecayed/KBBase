@@ -360,6 +360,7 @@
 .
 :meanSpeedReduction
   rdf:type owl:DatatypeProperty ;
+  rdfs:domain :AccidentAssignment ;
   rdfs:domain :RepairAssignment ;
   rdfs:range xsd:float ;
   rdfs:subPropertyOf core2ed:entity ;
