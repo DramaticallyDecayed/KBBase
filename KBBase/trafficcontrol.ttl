@@ -242,7 +242,7 @@
   rdfs:subPropertyOf core2ed:associative ;
   rdfs:subPropertyOf core2ed:world ;
   owl:propertyChainAxiom (
-      :jam
+      :jaming
       :complicatedByAccident
     ) ;
 .
@@ -253,7 +253,7 @@
   rdfs:subPropertyOf core2ed:associative ;
   rdfs:subPropertyOf core2ed:world ;
   owl:propertyChainAxiom (
-      :jam
+      :jaming
       :hasRepairAssignment
     ) ;
 .
@@ -330,13 +330,6 @@
   rdfs:range xsd:float ;
   rdfs:subPropertyOf core2ed:entity ;
 .
-:jam
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain :Jam ;
-  rdfs:range :Road ;
-  rdfs:subPropertyOf core2ed:world ;
-  owl:inverseOf :hasJam ;
-.
 :jamIncluded
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Jam ;
@@ -345,9 +338,16 @@
   rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
   owl:propertyChainAxiom (
-      :jam
+      :jaming
       :describedBy
     ) ;
+.
+:jaming
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Jam ;
+  rdfs:range :Road ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:inverseOf :hasJam ;
 .
 :levelGeneration
   rdf:type core2ed:LevelGeneration ;
