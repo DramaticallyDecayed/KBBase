@@ -371,9 +371,6 @@
   rdfs:range xsd:float ;
   rdfs:subPropertyOf core2ed:entity ;
 .
-:ndActivation
-  rdf:type core2ed:NDActivation ;
-.
 :ndGeneration
   rdf:type core2ed:NDGeneration ;
 .
