@@ -19,11 +19,13 @@
 .
 :AircraftGroup
   rdf:type owl:Class ;
+  rdfs:label "Группа"^^xsd:string ;
   rdfs:subClassOf core2ed:Complex ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :Danger
   rdf:type owl:Class ;
+  rdfs:label "Угроза"^^xsd:string ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :DisclosureDanger
@@ -32,6 +34,7 @@
 .
 :FormatedGroup
   rdf:type owl:Class ;
+  rdfs:label "Построенная группа"^^xsd:string ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :IdentifiedAircraft
@@ -41,6 +44,7 @@
 .
 :ImportantObject
   rdf:type owl:Class ;
+  rdfs:label "Важный объект"^^xsd:string ;
   rdfs:subClassOf core2ed:Percepted ;
 .
 :MarchGroup
@@ -69,6 +73,7 @@
 .
 :UnknownAircraft
   rdf:type owl:Class ;
+  rdfs:label "Нераспознанный ЛА"^^xsd:string ;
   rdfs:subClassOf core2ed:Percepted ;
 .
 :associatedWithDanger
@@ -114,6 +119,7 @@
 :identifiedAsFormation
   rdf:type owl:ObjectProperty ;
   rdfs:domain :AircraftGroup ;
+  rdfs:label "распознанна как"^^xsd:string ;
   rdfs:range :FormatedGroup ;
   rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
@@ -145,6 +151,7 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :FormatedGroup ;
   rdfs:domain :IdentifiedAircraft ;
+  rdfs:label "создает угрозу"^^xsd:string ;
   rdfs:range :Danger ;
   rdfs:subPropertyOf core2ed:world ;
 .
@@ -166,31 +173,34 @@
       :produceDanger
     ) ;
 .
-:threatenedByFormatedGroup
+:threatenedBy
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ImportantObject ;
+  rdfs:label "под угрозой"^^xsd:string ;
   rdfs:range :Danger ;
   rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
   owl:propertyChainAxiom (
-      :underFormedGroupAttention
+      :underFormedGroupDirection
       :produceDanger
     ) ;
 .
-:underFormedGroupAttention
+:underFormedGroupDirection
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ImportantObject ;
+  rdfs:label "на направлении построенной группы"^^xsd:string ;
   rdfs:range :FormatedGroup ;
   rdfs:subPropertyOf core2ed:associative ;
   rdfs:subPropertyOf core2ed:world ;
   owl:propertyChainAxiom (
-      :underGroupAttention
+      :underGroupDirection
       :identifiedAsFormation
     ) ;
 .
-:underGroupAttention
+:underGroupDirection
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ImportantObject ;
+  rdfs:label "на направлении группы"^^xsd:string ;
   rdfs:range :AircraftGroup ;
   rdfs:subPropertyOf core2ed:associative ;
   rdfs:subPropertyOf core2ed:world ;
