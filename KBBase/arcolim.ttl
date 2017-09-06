@@ -1,0 +1,631 @@
+# baseURI: http://dramaticallydecayed.com/arcolim
+# imports: http://dramaticallydecayed.com/core2ed
+
+@prefix : <http://dramaticallydecayed.com/arcolim#> .
+@prefix core2ed: <http://dramaticallydecayed.com/core2ed#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dramaticallydecayed.com/arcolim>
+  rdf:type owl:Ontology ;
+  owl:imports <http://dramaticallydecayed.com/core2ed> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:AirBase
+  rdf:type owl:Class ;
+  rdfs:subClassOf :DeploymentObject ;
+.
+:Alpha
+  rdf:type owl:Class ;
+  rdfs:subClassOf :LauncherGroup ;
+.
+:B2A
+  rdf:type owl:Class ;
+  rdfs:subClassOf :StrategicBomber ;
+.
+:BallisticMissile
+  rdf:type owl:Class ;
+  rdfs:subClassOf :WeaponObject ;
+.
+:Charge
+  rdf:type owl:Class ;
+  rdfs:subClassOf :WeaponObject ;
+.
+:ComputedClassGeneration_1
+  rdf:type core2ed:ComputedClassGeneration ;
+.
+:ControlObject
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+.
+:Coordinate
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:DFGeneration_1
+  rdf:type core2ed:DFGeneration ;
+.
+:DeploymentObject
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Location ;
+.
+:ElaborationGeneration_1
+  rdf:type core2ed:ElaborationGeneration ;
+.
+:Facility
+  rdf:type owl:Class ;
+  rdfs:subClassOf :DeploymentObject ;
+.
+:FullStatement
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:ICBM
+  rdf:type owl:Class ;
+  rdfs:subClassOf :BallisticMissile ;
+.
+:ICBMLauncher
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Launcher ;
+.
+:ICBMLauncherBase
+  rdf:type owl:Class ;
+  rdfs:subClassOf :DeploymentObject ;
+.
+:Launcher
+  rdf:type owl:Class ;
+  rdfs:subClassOf :WeaponObject ;
+.
+:LauncherGroup
+  rdf:type owl:Class ;
+  rdfs:subClassOf :DeploymentObject ;
+.
+:Location
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+.
+:Maintenance
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Facility ;
+.
+:MinutemenIII
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ICBM ;
+.
+:MinutemenIIILauncher
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ICBMLauncher ;
+.
+:NF3Statement
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Statement ;
+.
+:NfContentPath
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:NfContentTemplate
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:NfField
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:Notification
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionPercepted ;
+  rdfs:subClassOf core2ed:Percepted ;
+.
+:Notification_1
+  rdf:type :Notification ;
+.
+:Ohio
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Submarine ;
+.
+:PartialStatement
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:SLBM
+  rdf:type owl:Class ;
+  rdfs:subClassOf :BallisticMissile ;
+.
+:SLBMLauncher
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Launcher ;
+.
+:Statement
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:StrategicBomber
+  rdf:type owl:Class ;
+  rdfs:subClassOf :WeaponObject ;
+.
+:StrategicWeapon
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Facility ;
+.
+:Submarine
+  rdf:type owl:Class ;
+  rdfs:subClassOf :WeaponObject ;
+.
+:SubmarineBase
+  rdf:type owl:Class ;
+  rdfs:subClassOf :DeploymentObject ;
+.
+:Transite
+  rdf:type owl:Class ;
+  rdfs:subClassOf :DeploymentObject ;
+.
+:Treaty
+  rdf:type owl:Class ;
+  rdfs:subClassOf :UnionHLConcept ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:TridentII
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SLBM ;
+.
+:TridentIILauncher
+  rdf:type owl:Class ;
+  rdfs:subClassOf :SLBMLauncher ;
+.
+:UnionHLConcept
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:WorldHLConcept ;
+.
+:UnionPercepted
+  rdf:type owl:Class ;
+  rdfs:subClassOf core2ed:Percepted ;
+.
+:WeaponObject
+  rdf:type owl:Class ;
+  rdfs:subClassOf :ControlObject ;
+.
+:a9195948-e804-4f08-82c2-d5c9c9312e87
+  rdf:type :StrategicWeapon ;
+  :belong :dea95ba6-965b-464b-934e-88a2390e79dd ;
+  :hasLatitude :ae3a8400-a909-420f-abb0-a56983b7af2a ;
+  :hasLongitude :ad41820f-e3e2-4b83-8894-49e646f2477d ;
+  :name "STRATEGIC WEAPONS FACILITY"^^xsd:string ;
+  :stateUS "GEORGIA"^^xsd:string ;
+.
+:accord
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range :Treaty ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:ad41820f-e3e2-4b83-8894-49e646f2477d
+  rdf:type :Coordinate ;
+  :degree "81"^^xsd:float ;
+  :minute "32"^^xsd:float ;
+  :second 00 ;
+  :semisphere "W"^^xsd:string ;
+.
+:ae3a8400-a909-420f-abb0-a56983b7af2a
+  rdf:type :Coordinate ;
+  :degree "30"^^xsd:float ;
+  :minute "48"^^xsd:float ;
+  :second 00 ;
+  :semisphere "N"^^xsd:string ;
+.
+:af4e0229-850f-4840-a6b4-c98ebade4497
+  rdf:type :TridentIILauncher ;
+  :deployed "false"^^xsd:boolean ;
+  :name "2"^^xsd:string ;
+.
+:belong
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :DeploymentObject ;
+  rdfs:range :DeploymentObject ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:cd5bdb8e-8031-429d-b7e2-b59a29ee964b
+  rdf:type :TridentII ;
+  :deployed "false"^^xsd:boolean ;
+  :name "A0002"^^xsd:string ;
+.
+:change
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NF3Statement ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :nf3Statement_property ;
+.
+:controlObjecStatedIn
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ControlObject ;
+  rdfs:range :FullStatement ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:coordinate_property
+  rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:cuWorldGeneration
+  rdf:type core2ed:CUWorldGeneration ;
+.
+:d856f95b-f7a6-48ca-98d4-49169c610421
+  rdf:type :TridentII ;
+  :deployed "false"^^xsd:boolean ;
+  :name "A0003"^^xsd:string ;
+.
+:date
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NF3Statement ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf :nf3Statement_property ;
+.
+:dea95ba6-965b-464b-934e-88a2390e79dd
+  rdf:type :SubmarineBase ;
+  :hasLatitude :ae3a8400-a909-420f-abb0-a56983b7af2a ;
+  :hasLongitude :ad41820f-e3e2-4b83-8894-49e646f2477d ;
+  :name "ATLANTIC, KINGS BAY, GEORGIA"^^xsd:string ;
+  :stateUS "GEORGIA"^^xsd:string ;
+.
+:degree
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Coordinate ;
+  rdfs:range xsd:float ;
+  rdfs:subPropertyOf :coordinate_property ;
+.
+:deployed
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :WeaponObject ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:dispose
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Location ;
+  rdfs:range :ControlObject ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:e8461542-03ce-40ac-a768-c847e8085fcb
+  rdf:type :TridentIILauncher ;
+  :deployed "false"^^xsd:boolean ;
+  :name "1"^^xsd:string ;
+.
+:e9188063-e8be-440a-ab6f-8e9e54bc226c
+  rdf:type :Ohio ;
+  :name "RHODE ISLAND"^^xsd:string ;
+.
+:encodeControlObject
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range :ControlObject ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :formStatement
+      :informAboutControlObject
+    ) ;
+.
+:encodeLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range :Location ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :formStatement
+      :informAboutLocation
+    ) ;
+.
+:f27abe90-4eba-417a-8d75-b2cb4232ddd5
+  rdf:type :TridentII ;
+  :deployed "false"^^xsd:boolean ;
+  :name "A0001"^^xsd:string ;
+.
+:fde0be35-be7d-4cfb-8bf2-006ab12d3289
+  rdf:type :TridentII ;
+  :deployed "false"^^xsd:boolean ;
+  :name "A0004"^^xsd:string ;
+.
+:formStatement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range :NF3Statement ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasAffirmedCharge
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :BallisticMissile ;
+  rdfs:range :Charge ;
+  rdfs:subPropertyOf :hasCharge ;
+.
+:hasCharge
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :BallisticMissile ;
+  rdfs:range :Charge ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasContentPath
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NfContentTemplate ;
+  rdfs:range :NfContentPath ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+:hasLatitude
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Location ;
+  rdfs:range :Coordinate ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasLongitude
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Location ;
+  rdfs:range :Coordinate ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasNfField
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range :NfField ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:hasTypicalCharge
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :BallisticMissile ;
+  rdfs:range :Charge ;
+  rdfs:subPropertyOf :hasCharge ;
+.
+:include_state
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Statement ;
+  rdfs:range :PartialStatement ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:informAboutControlObject
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NF3Statement ;
+  rdfs:range :ControlObject ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:informAboutLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NF3Statement ;
+  rdfs:range :Location ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:isEmpty
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf :nffield_property ;
+.
+:kiloton
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Charge ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:levelGeneration
+  rdf:type core2ed:LevelGeneration ;
+.
+:minute
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Coordinate ;
+  rdfs:range xsd:float ;
+  rdfs:subPropertyOf :coordinate_property ;
+.
+:name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :ControlObject ;
+  rdfs:domain :Location ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:ndGeneration
+  rdf:type core2ed:NDGeneration ;
+.
+:nf3Content
+  rdf:type :NfContentTemplate ;
+  :hasContentPath :nf3PathToDeployedCO ;
+  :hasContentPath :nf3PathToLocation ;
+  :hasContentPath :nf3PathToNonDeployedCO ;
+  :templateFor :NF3Statement ;
+.
+:nf3PathToDeployedCO
+  rdf:type :NfContentPath ;
+  :pathString "3_*_3_A"^^xsd:string ;
+  :pathTo :ControlObject ;
+.
+:nf3PathToLocation
+  rdf:type :NfContentPath ;
+  :pathString "3_*_2_A"^^xsd:string ;
+  :pathTo :Location ;
+.
+:nf3PathToNonDeployedCO
+  rdf:type :NfContentPath ;
+  :pathString "3_*_3_B"^^xsd:string ;
+  :pathTo :ControlObject ;
+.
+:nf3Statement_property
+  rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:nf_format
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :notification_property ;
+.
+:nf_number
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :notification_property ;
+.
+:nf_text
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :notification_property ;
+.
+:nf_year
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :notification_property ;
+.
+:nffield_path
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :nffield_property ;
+.
+:nffield_property
+  rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:nffield_text
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :nffield_property ;
+.
+:nffield_type
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NfField ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :nffield_property ;
+.
+:notification_property
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:pathString
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NfContentPath ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:pathTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NfContentPath ;
+  rdfs:range owl:Class ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+:reference
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range :Notification ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:reference_on
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Statement ;
+  rdfs:range :FullStatement ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :reference_to
+      :reference_on
+    ) ;
+.
+:reference_to
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Statement ;
+  rdfs:range :Statement ;
+  rdfs:subPropertyOf core2ed:world ;
+.
+:second
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Coordinate ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :coordinate_property ;
+.
+:semisphere
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Coordinate ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf :coordinate_property ;
+.
+:size
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Charge ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:start
+  rdf:type :Treaty ;
+  rdfs:label "\"ANC/SOA\"@en"^^xsd:string ;
+  rdfs:label "\"СНВ\"@ru"^^xsd:string ;
+.
+:state
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Notification ;
+  rdfs:range :NF3Statement ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :hasNfField
+      :formStatement
+    ) ;
+.
+:stateUS
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :DeploymentObject ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:statementPath
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Statement ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
+:storeDeployedCharge
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Location ;
+  rdfs:range :Charge ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :dispose
+      :hasCharge
+    ) ;
+.
+:storeUndeployedCharge
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Location ;
+  rdfs:range :Charge ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :dispose
+      :hasCharge
+    ) ;
+.
+:templateFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NfContentTemplate ;
+  rdfs:range owl:Class ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+:total
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :NF3Statement ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf :nf3Statement_property ;
+.
+:uri
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :UnionHLConcept ;
+  rdfs:domain :UnionPercepted ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf core2ed:entity ;
+.
