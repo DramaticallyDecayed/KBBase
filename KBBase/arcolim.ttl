@@ -62,6 +62,7 @@
 :FullStatement
   rdf:type owl:Class ;
   rdfs:subClassOf :UnionHLConcept ;
+  rdfs:subClassOf core2ed:Complex ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :ICBM
@@ -120,9 +121,6 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :UnionPercepted ;
   rdfs:subClassOf core2ed:Percepted ;
-.
-:Notification_1
-  rdf:type :Notification ;
 .
 :Ohio
   rdf:type owl:Class ;
@@ -241,7 +239,7 @@
   rdfs:range xsd:integer ;
   rdfs:subPropertyOf :nf3Statement_property ;
 .
-:controlObjecStatedIn
+:controlObject4FullStatement
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ControlObject ;
   rdfs:range :FullStatement ;
@@ -404,6 +402,22 @@
   rdfs:range xsd:boolean ;
   rdfs:subPropertyOf :nffield_property ;
 .
+:isPartOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :NF3Statement ;
+  rdfs:range :FullStatement ;
+  rdfs:subPropertyOf core2ed:complex ;
+  rdfs:subPropertyOf core2ed:generative ;
+  rdfs:subPropertyOf core2ed:world ;
+  owl:propertyChainAxiom (
+      :informAboutControlObject
+      :controlObject4FullStatement
+    ) ;
+  owl:propertyChainAxiom (
+      :informAboutLocation
+      :location4FullStatement
+    ) ;
+.
 :kiloton
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Charge ;
@@ -412,6 +426,12 @@
 .
 :levelGeneration
   rdf:type core2ed:LevelGeneration ;
+.
+:location4FullStatement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Location ;
+  rdfs:range :FullStatement ;
+  rdfs:subPropertyOf core2ed:world ;
 .
 :minute
   rdf:type owl:DatatypeProperty ;
@@ -529,7 +549,6 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Statement ;
   rdfs:range :FullStatement ;
-  rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
   owl:propertyChainAxiom (
       :reference_to
