@@ -1,0 +1,318 @@
+# baseURI: http://cps.dd/domain
+# imports: http://dramaticallydecayed.com/core2ed
+
+@prefix : <http://cps.dd/domain#> .
+@prefix core2ed: <http://dramaticallydecayed.com/core2ed#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://cps.dd/domain>
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  owl:imports <http://dramaticallydecayed.com/core2ed> ;
+.
+:AmbulanceStation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CityServiceStation ;
+.
+:Area
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:CityServiceStation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CityServiceStationType ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :form ;
+      owl:someValuesFrom :LocalService ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :maintain ;
+      owl:someValuesFrom :Area ;
+    ] ;
+.
+:CityServiceStationType
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Event
+  rdf:type owl:Class ;
+  rdfs:subClassOf [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :has ;
+            owl:someValuesFrom :Location ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :has ;
+            owl:someValuesFrom :Period ;
+          ]
+        ) ;
+    ] ;
+.
+:EventCluster
+  rdf:type owl:Class ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :has ;
+            owl:someValuesFrom :Location ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :has ;
+            owl:someValuesFrom :Period ;
+          ]
+        ) ;
+    ] ;
+.
+:FireStation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CityServiceStation ;
+.
+:John
+  rdf:type :Participant ;
+  :takePartIn :rockBandConcert ;
+.
+:LivingEvent
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Event ;
+.
+:LivingEventCluster
+  rdf:type owl:Class ;
+  rdfs:subClassOf :EventCluster ;
+.
+:LocalFireSafty
+  rdf:type owl:Class ;
+  rdfs:subClassOf :LocalService ;
+.
+:LocalHealthcare
+  rdf:type owl:Class ;
+  rdfs:subClassOf :LocalService ;
+.
+:LocalSecurity
+  rdf:type owl:Class ;
+  rdfs:subClassOf :LocalService ;
+.
+:LocalService
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Location
+  rdf:type owl:Class ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange owl:rational ;
+      owl:onProperty :latitude ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange owl:rational ;
+      owl:onProperty :longitude ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:Participant
+  rdf:type owl:Class ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Person
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :takePartIn ;
+            owl:someValuesFrom :PerformanceEvent ;
+          ]
+        ) ;
+    ] ;
+.
+:PerfomanceEventCluster
+  rdf:type owl:Class ;
+  rdfs:subClassOf :EventCluster ;
+.
+:PerformanceEvent
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Event ;
+.
+:Period
+  rdf:type owl:Class ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange owl:rational ;
+      owl:onProperty :end ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange owl:rational ;
+      owl:onProperty :start ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:Person
+  rdf:type owl:Class ;
+.
+:PoliceStation
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CityServiceStation ;
+.
+:Stationary
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CityServiceStationType ;
+.
+:Temporary
+  rdf:type owl:Class ;
+  rdfs:subClassOf :CityServiceStationType ;
+.
+:Tourist
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Person
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :actAs ;
+            owl:someValuesFrom :Visitor ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :actAs ;
+            owl:someValuesFrom :Participant ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :takePartIn ;
+            owl:someValuesFrom :PerformanceEvent ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :takePartIn ;
+            owl:someValuesFrom :LivingEvent ;
+          ]
+        ) ;
+    ] ;
+.
+:Visitor
+  rdf:type owl:Class ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Person
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :takePartIn ;
+            owl:someValuesFrom :LivingEvent ;
+          ]
+        ) ;
+    ] ;
+.
+:WestStadium
+  rdf:type :Location ;
+.
+:actAs
+  rdf:type rdf:Property ;
+.
+:assignedTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :LocalService ;
+  rdfs:range :EventCluster ;
+.
+:consistOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+:density
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Area ;
+  rdfs:range xsd:float ;
+.
+:end
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Period ;
+  rdfs:range xsd:dateTime ;
+.
+:firstWestPoliceStation
+  rdf:type :PoliceStation ;
+.
+:form
+  rdf:type owl:ObjectProperty ;
+.
+:has
+  rdf:type owl:ObjectProperty ;
+.
+:hasExpandability
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          :CityServiceStation
+          :LocalService
+        ) ;
+    ] ;
+  rdfs:range xsd:float ;
+.
+:hasMaintenanceReserve
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          :CityServiceStation
+          :LocalService
+        ) ;
+    ] ;
+  rdfs:range xsd:float ;
+.
+:latitude
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Location ;
+  rdfs:range xsd:double ;
+.
+:longitude
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Location ;
+  rdfs:range xsd:double ;
+.
+:maintain
+  rdf:type owl:ObjectProperty ;
+.
+:radius
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Area ;
+  rdfs:range xsd:float ;
+.
+:rockBandConcert
+  rdf:type :PerformanceEvent ;
+  :has :WestStadium ;
+  :has :rockBandConcertDay ;
+.
+:rockBandConcertDay
+  rdf:type :Period ;
+  :end "2019-06-01T23:00:00"^^xsd:dateTime ;
+  :start "2019-06-06T20:00:00"^^xsd:dateTime ;
+.
+:secondWestPoliceStation
+  rdf:type :PoliceStation ;
+.
+:start
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Period ;
+  rdfs:range xsd:dateTime ;
+.
+:takePartIn
+  rdf:type owl:ObjectProperty ;
+.
