@@ -28,6 +28,11 @@
   :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
   :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
 .
+:CityBirthdayPeriod
+  rdf:type :Period ;
+  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
+.
 :CityBirthdayWeekSecurityService
   rdf:type :LocalSecurity ;
   :hasExpandability 1500 ;
@@ -76,7 +81,7 @@
 :CraftFair
   rdf:type :LivingEvent ;
   :hasLocation :CityWestSquare ;
-  :hasPeriod :JohnLivingPeriod ;
+  :hasPeriod :CityBirthdayPeriod ;
 .
 :Event
   rdf:type owl:Class ;
@@ -122,11 +127,6 @@
   rdf:type :Participant ;
   :headsTowards :CityWestSquare ;
   :takePartIn :CraftFair ;
-.
-:JohnLivingPeriod
-  rdf:type :Period ;
-  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
-  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
 .
 :LivingEvent
   rdf:type owl:Class ;
