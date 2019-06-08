@@ -23,6 +23,18 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
+:CityBirhdayWeek
+  rdf:type :Period ;
+  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
+.
+:CityBirthdayWeekSecurityService
+  rdf:type :LocalSecurity ;
+  :hasExpandability 1500 ;
+  :hasMaintenanceLack 4000 ;
+  :hasMaintenanceReserve 500 ;
+  :maintainsPopulation 4000 ;
+.
 :CityServiceStation
   rdf:type owl:Class ;
   rdfs:subClassOf :CityServiceStationType ;
@@ -42,9 +54,29 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
-:CityWestSmallHotel
+:CityWest
+  rdf:type :Area ;
+  :areaRadius "2000"^^xsd:float ;
+  :covers :CityWestSquare ;
+  :covers :NotrhWestDistrict ;
+  :covers :SouthWestDistrict ;
+  :pupolation 10000 ;
+.
+:CityWestPerformace
+  rdf:type :PerfomanceEventCluster ;
+  :consistOf :CraftFair ;
+  :coversArea :CityWest ;
+  :hasPeriod :CityBirhdayWeek ;
+  :maintainedBy :CityBirthdayWeekSecurityService ;
+.
+:CityWestSquare
   rdf:type :Location ;
   :pupolation 200 ;
+.
+:CraftFair
+  rdf:type :LivingEvent ;
+  :hasLocation :CityWestSquare ;
+  :hasPeriod :JohnLivingPeriod ;
 .
 :Event
   rdf:type owl:Class ;
@@ -88,12 +120,8 @@
 .
 :John
   rdf:type :Participant ;
-  :takePartIn :JohnLiving ;
-.
-:JohnLiving
-  rdf:type :LivingEvent ;
-  :hasLocation :CityWestSmallHotel ;
-  :hasPeriod :JohnLivingPeriod ;
+  :headsTowards :CityWestSquare ;
+  :takePartIn :CraftFair ;
 .
 :JohnLivingPeriod
   rdf:type :Period ;
@@ -143,8 +171,8 @@
   rdf:type :PoliceStation ;
   :hasExpandability 800 ;
   :hasMaintenanceReserve 200 ;
-  :maintainSecurity :RockWeekLivingEvent ;
-  :maintainService :RockWeekSecurityService ;
+  :maintainSecurity :CityWestPerformace ;
+  :maintainService :CityBirthdayWeekSecurityService ;
   :maintainsDistrict :NotrhWestDistrict ;
   :maintainsPopulation 2000 ;
 .
@@ -197,33 +225,6 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :CityServiceStation ;
 .
-:RockWeek
-  rdf:type :Period ;
-  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
-  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
-.
-:RockWeekLivingArea
-  rdf:type :Area ;
-  :areaRadius "2000"^^xsd:float ;
-  :covers :CityWestSmallHotel ;
-  :covers :NotrhWestDistrict ;
-  :covers :SouthWestDistrict ;
-  :pupolation 10000 ;
-.
-:RockWeekLivingEvent
-  rdf:type :LivingEventCluster ;
-  :consistOf :JohnLiving ;
-  :coversArea :RockWeekLivingArea ;
-  :hasPeriod :RockWeek ;
-  :maintainedBy :RockWeekSecurityService ;
-.
-:RockWeekSecurityService
-  rdf:type :LocalSecurity ;
-  :hasExpandability 1500 ;
-  :hasMaintenanceLack 4000 ;
-  :hasMaintenanceReserve 500 ;
-  :maintainsPopulation 4000 ;
-.
 :SouthWestDistrict
   rdf:type :Area ;
   :pupolation 2000 ;
@@ -232,8 +233,8 @@
   rdf:type :PoliceStation ;
   :hasExpandability 700 ;
   :hasMaintenanceReserve 300 ;
-  :maintainSecurity :RockWeekLivingEvent ;
-  :maintainService :RockWeekSecurityService ;
+  :maintainSecurity :CityWestPerformace ;
+  :maintainService :CityBirthdayWeekSecurityService ;
   :maintainsDistrict :SouthWestDistrict ;
   :maintainsPopulation "2000"^^xsd:string ;
 .
@@ -353,6 +354,9 @@
 .
 :hasPeriod
   rdf:type owl:ObjectProperty ;
+.
+:headsTowards
+  rdf:type rdf:Property ;
 .
 :locationLatitude
   rdf:type owl:DatatypeProperty ;
