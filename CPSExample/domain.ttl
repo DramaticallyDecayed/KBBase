@@ -29,18 +29,22 @@
   rdfs:subClassOf owl:Thing ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
-      owl:onProperty :form ;
+      owl:onProperty :maintainService ;
       owl:someValuesFrom :LocalService ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
-      owl:onProperty :maintain ;
+      owl:onProperty :maintainsDistrict ;
       owl:someValuesFrom :Area ;
     ] ;
 .
 :CityServiceStationType
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
+.
+:CityWestSmallHotel
+  rdf:type :Location ;
+  :pupolation 200 ;
 .
 :Event
   rdf:type owl:Class ;
@@ -49,12 +53,12 @@
       owl:intersectionOf (
           [
             rdf:type owl:Restriction ;
-            owl:onProperty :has ;
+            owl:onProperty :hasLocation ;
             owl:someValuesFrom :Location ;
           ]
           [
             rdf:type owl:Restriction ;
-            owl:onProperty :has ;
+            owl:onProperty :hasPeriod ;
             owl:someValuesFrom :Period ;
           ]
         ) ;
@@ -67,12 +71,12 @@
       owl:intersectionOf (
           [
             rdf:type owl:Restriction ;
-            owl:onProperty :has ;
-            owl:someValuesFrom :Location ;
+            owl:onProperty :coversArea ;
+            owl:someValuesFrom :Area ;
           ]
           [
             rdf:type owl:Restriction ;
-            owl:onProperty :has ;
+            owl:onProperty :hasPeriod ;
             owl:someValuesFrom :Period ;
           ]
         ) ;
@@ -84,7 +88,17 @@
 .
 :John
   rdf:type :Participant ;
-  :takePartIn :rockBandConcert ;
+  :takePartIn :JohnLiving ;
+.
+:JohnLiving
+  rdf:type :LivingEvent ;
+  :hasLocation :CityWestSmallHotel ;
+  :hasPeriod :JohnLivingPeriod ;
+.
+:JohnLivingPeriod
+  rdf:type :Period ;
+  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
 .
 :LivingEvent
   rdf:type owl:Class ;
@@ -115,18 +129,32 @@
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:onDataRange owl:rational ;
-      owl:onProperty :latitude ;
+      owl:onProperty :locationLatitude ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:onDataRange owl:rational ;
-      owl:onProperty :longitude ;
+      owl:onProperty :locationLongitude ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
 .
+:NorthWestPoliceStation
+  rdf:type :PoliceStation ;
+  :hasExpandability 800 ;
+  :hasMaintenanceReserve 200 ;
+  :maintainSecurity :RockWeekLivingEvent ;
+  :maintainService :RockWeekSecurityService ;
+  :maintainsDistrict :NotrhWestDistrict ;
+  :maintainsPopulation 2000 ;
+.
+:NotrhWestDistrict
+  rdf:type :Area ;
+  :pupolation 2000 ;
+.
 :Participant
   rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
   owl:equivalentClass [
       rdf:type owl:Class ;
       owl:intersectionOf (
@@ -152,13 +180,13 @@
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:onDataRange owl:rational ;
-      owl:onProperty :end ;
+      owl:onProperty :periodEnd ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:onDataRange owl:rational ;
-      owl:onProperty :start ;
+      owl:onProperty :periodStart ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
 .
@@ -168,6 +196,45 @@
 :PoliceStation
   rdf:type owl:Class ;
   rdfs:subClassOf :CityServiceStation ;
+.
+:RockWeek
+  rdf:type :Period ;
+  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
+.
+:RockWeekLivingArea
+  rdf:type :Area ;
+  :areaRadius "2000"^^xsd:float ;
+  :covers :CityWestSmallHotel ;
+  :covers :NotrhWestDistrict ;
+  :covers :SouthWestDistrict ;
+  :pupolation 10000 ;
+.
+:RockWeekLivingEvent
+  rdf:type :LivingEventCluster ;
+  :coversArea :RockWeekLivingArea ;
+  :hasPeriod :RockWeek ;
+  :maintainedBy :RockWeekSecurityService ;
+.
+:RockWeekSecurityService
+  rdf:type :LocalSecurity ;
+  :hasExpandability 1500 ;
+  :hasMaintenanceLack 4000 ;
+  :hasMaintenanceReserve 500 ;
+  :maintainsPopulation 4000 ;
+.
+:SouthWestDistrict
+  rdf:type :Area ;
+  :pupolation 2000 ;
+.
+:SouthWestPoliceStation
+  rdf:type :PoliceStation ;
+  :hasExpandability 700 ;
+  :hasMaintenanceReserve 300 ;
+  :maintainSecurity :RockWeekLivingEvent ;
+  :maintainService :RockWeekSecurityService ;
+  :maintainsDistrict :SouthWestDistrict ;
+  :maintainsPopulation "2000"^^xsd:string ;
 .
 :Stationary
   rdf:type owl:Class ;
@@ -209,6 +276,7 @@
 .
 :Visitor
   rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
   owl:equivalentClass [
       rdf:type owl:Class ;
       owl:intersectionOf (
@@ -221,11 +289,13 @@
         ) ;
     ] ;
 .
-:WestStadium
-  rdf:type :Location ;
-.
 :actAs
   rdf:type rdf:Property ;
+.
+:areaRadius
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Area ;
+  rdfs:range xsd:float ;
 .
 :assignedTo
   rdf:type owl:ObjectProperty ;
@@ -236,23 +306,18 @@
   rdf:type owl:ObjectProperty ;
   rdfs:subPropertyOf owl:topObjectProperty ;
 .
-:density
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :Area ;
-  rdfs:range xsd:float ;
-.
-:end
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :Period ;
-  rdfs:range xsd:dateTime ;
-.
-:firstWestPoliceStation
-  rdf:type :PoliceStation ;
-.
-:form
+:covers
   rdf:type owl:ObjectProperty ;
+  rdfs:domain :Area ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          :Location
+          :Area
+        ) ;
+    ] ;
 .
-:has
+:coversArea
   rdf:type owl:ObjectProperty ;
 .
 :hasExpandability
@@ -264,7 +329,15 @@
           :LocalService
         ) ;
     ] ;
-  rdfs:range xsd:float ;
+  rdfs:range xsd:integer ;
+.
+:hasLocation
+  rdf:type owl:ObjectProperty ;
+.
+:hasMaintenanceLack
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :LocalService ;
+  rdfs:range xsd:integer ;
 .
 :hasMaintenanceReserve
   rdf:type owl:DatatypeProperty ;
@@ -275,43 +348,59 @@
           :LocalService
         ) ;
     ] ;
-  rdfs:range xsd:float ;
+  rdfs:range xsd:integer ;
 .
-:latitude
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :Location ;
-  rdfs:range xsd:double ;
-.
-:longitude
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :Location ;
-  rdfs:range xsd:double ;
-.
-:maintain
+:hasPeriod
   rdf:type owl:ObjectProperty ;
 .
-:radius
+:locationLatitude
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain :Area ;
-  rdfs:range xsd:float ;
+  rdfs:domain :Location ;
+  rdfs:range xsd:double ;
 .
-:rockBandConcert
-  rdf:type :PerformanceEvent ;
-  :has :WestStadium ;
-  :has :rockBandConcertDay ;
+:locationLongitude
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Location ;
+  rdfs:range xsd:double ;
 .
-:rockBandConcertDay
-  rdf:type :Period ;
-  :end "2019-06-01T23:00:00"^^xsd:dateTime ;
-  :start "2019-06-06T20:00:00"^^xsd:dateTime ;
+:maintainSecurity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :PoliceStation ;
+  rdfs:range :EventCluster ;
 .
-:secondWestPoliceStation
-  rdf:type :PoliceStation ;
+:maintainService
+  rdf:type owl:ObjectProperty ;
 .
-:start
+:maintainedBy
+  rdf:type owl:ObjectProperty ;
+.
+:maintainsDistrict
+  rdf:type owl:ObjectProperty ;
+.
+:maintainsPopulation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:integer ;
+.
+:periodEnd
   rdf:type owl:DatatypeProperty ;
   rdfs:domain :Period ;
   rdfs:range xsd:dateTime ;
+.
+:periodStart
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Period ;
+  rdfs:range xsd:dateTime ;
+.
+:pupolation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          :Area
+          :Location
+        ) ;
+    ] ;
+  rdfs:range xsd:integer ;
 .
 :takePartIn
   rdf:type owl:ObjectProperty ;
