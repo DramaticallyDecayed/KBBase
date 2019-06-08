@@ -52,17 +52,17 @@
 :CityWest
   rdf:type :Area ;
   :areaRadius "2000"^^xsd:float ;
-  :covers :CityWest ;
   :covers :CityWestSquare ;
   :covers :NotrhWestDistrict ;
   :covers :SouthWestDistrict ;
-  :pupolation 10000 ;
 .
 :CityWestPerfomance
   rdf:type :PerfomanceEventCluster ;
   :consistOf :CraftFair ;
+  :hasLocation :CityWest ;
   :hasPeriod :CityWestPerfomancePeriod ;
   :maintainedBy :CityBirthdayWeekSecurityService ;
+  :pupolation 10000 ;
 .
 :CityWestPerfomancePeriod
   rdf:type :Period ;
@@ -406,6 +406,7 @@
       owl:unionOf (
           :Area
           :Location
+          :EventCluster
         ) ;
     ] ;
   rdfs:range xsd:integer ;
