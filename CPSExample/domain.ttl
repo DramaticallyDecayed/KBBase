@@ -25,11 +25,7 @@
 .
 :CityBirhdayWeek
   rdf:type :Period ;
-  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
-  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
-.
-:CityBirthdayPeriod
-  rdf:type :Period ;
+  :includesPeriod :CityWestPerfomancePeriod ;
   :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
   :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
 .
@@ -62,17 +58,22 @@
 :CityWest
   rdf:type :Area ;
   :areaRadius "2000"^^xsd:float ;
+  :covers :CityWest ;
   :covers :CityWestSquare ;
   :covers :NotrhWestDistrict ;
   :covers :SouthWestDistrict ;
   :pupolation 10000 ;
 .
-:CityWestPerformace
+:CityWestPerfomance
   rdf:type :PerfomanceEventCluster ;
   :consistOf :CraftFair ;
-  :coversArea :CityWest ;
   :hasPeriod :CityBirhdayWeek ;
   :maintainedBy :CityBirthdayWeekSecurityService ;
+.
+:CityWestPerfomancePeriod
+  rdf:type :Period ;
+  :periodEnd "2018-06-02T20:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-02T11:00:00"^^xsd:dateTime ;
 .
 :CityWestSquare
   rdf:type :Location ;
@@ -81,7 +82,7 @@
 :CraftFair
   rdf:type :LivingEvent ;
   :hasLocation :CityWestSquare ;
-  :hasPeriod :CityBirthdayPeriod ;
+  :hasPeriod :CityWestPerfomancePeriod ;
 .
 :Event
   rdf:type owl:Class ;
@@ -108,7 +109,7 @@
       owl:intersectionOf (
           [
             rdf:type owl:Restriction ;
-            owl:onProperty :coversArea ;
+            owl:onProperty :includesPeriod ;
             owl:someValuesFrom :Area ;
           ]
           [
@@ -171,7 +172,7 @@
   rdf:type :PoliceStation ;
   :hasExpandability 800 ;
   :hasMaintenanceReserve 200 ;
-  :maintainSecurity :CityWestPerformace ;
+  :maintainSecurity :CityWestPerfomance ;
   :maintainService :CityBirthdayWeekSecurityService ;
   :maintainsDistrict :NotrhWestDistrict ;
   :maintainsPopulation 2000 ;
@@ -233,7 +234,7 @@
   rdf:type :PoliceStation ;
   :hasExpandability 700 ;
   :hasMaintenanceReserve 300 ;
-  :maintainSecurity :CityWestPerformace ;
+  :maintainSecurity :CityWestPerfomance ;
   :maintainService :CityBirthdayWeekSecurityService ;
   :maintainsDistrict :SouthWestDistrict ;
   :maintainsPopulation "2000"^^xsd:string ;
@@ -319,9 +320,6 @@
         ) ;
     ] ;
 .
-:coversArea
-  rdf:type owl:ObjectProperty ;
-.
 :hasExpandability
   rdf:type owl:DatatypeProperty ;
   rdfs:domain [
@@ -357,6 +355,11 @@
 .
 :headsTowards
   rdf:type rdf:Property ;
+.
+:includesPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Period ;
+  rdfs:range :Period ;
 .
 :locationLatitude
   rdf:type owl:DatatypeProperty ;
