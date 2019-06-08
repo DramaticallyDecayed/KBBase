@@ -23,12 +23,6 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
-:CityBirhdayWeek
-  rdf:type :Period ;
-  :includesPeriod :CityWestPerfomancePeriod ;
-  :periodEnd "2018-06-07T23:00:00"^^xsd:dateTime ;
-  :periodStart "2018-06-01T00:00:00"^^xsd:dateTime ;
-.
 :CityBirthdayWeekSecurityService
   rdf:type :LocalSecurity ;
   :hasExpandability 1500 ;
@@ -67,13 +61,14 @@
 :CityWestPerfomance
   rdf:type :PerfomanceEventCluster ;
   :consistOf :CraftFair ;
-  :hasPeriod :CityBirhdayWeek ;
+  :hasPeriod :FairPeriod ;
   :maintainedBy :CityBirthdayWeekSecurityService ;
 .
 :CityWestPerfomancePeriod
   rdf:type :Period ;
-  :periodEnd "2018-06-02T20:00:00"^^xsd:dateTime ;
-  :periodStart "2018-06-02T11:00:00"^^xsd:dateTime ;
+  :includesPeriod :FairPeriod ;
+  :periodEnd "2018-06-02T23:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-02T08:00:00"^^xsd:dateTime ;
 .
 :CityWestSquare
   rdf:type :Location ;
@@ -119,6 +114,11 @@
           ]
         ) ;
     ] ;
+.
+:FairPeriod
+  rdf:type :Period ;
+  :periodEnd "2018-06-02T19:00:00"^^xsd:dateTime ;
+  :periodStart "2018-06-02T12:00:00"^^xsd:dateTime ;
 .
 :FireStation
   rdf:type owl:Class ;
