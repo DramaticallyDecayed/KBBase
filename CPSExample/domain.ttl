@@ -212,6 +212,7 @@
 .
 :RockWeekLivingEvent
   rdf:type :LivingEventCluster ;
+  :consistOf :JohnLiving ;
   :coversArea :RockWeekLivingArea ;
   :hasPeriod :RockWeek ;
   :maintainedBy :RockWeekSecurityService ;
