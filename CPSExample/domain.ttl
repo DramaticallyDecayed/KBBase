@@ -23,13 +23,6 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
-:CityBirthdayWeekSecurityService
-  rdf:type :LocalSecurity ;
-  :hasExpandability 1500 ;
-  :hasMaintenanceLack 4000 ;
-  :hasMaintenanceReserve 500 ;
-  :maintainsPopulation 4000 ;
-.
 :CityServiceStation
   rdf:type owl:Class ;
   rdfs:subClassOf :CityServiceStationType ;
@@ -51,17 +44,17 @@
 .
 :CityWest
   rdf:type :Area ;
-  :areaRadius "2000"^^xsd:float ;
   :covers :CityWestSquare ;
   :covers :NotrhWestDistrict ;
   :covers :SouthWestDistrict ;
+  :pupolation 4000 ;
 .
 :CityWestPerfomance
   rdf:type :PerfomanceEventCluster ;
   :consistOf :CraftFair ;
   :hasLocation :CityWest ;
   :hasPeriod :CityWestPerfomancePeriod ;
-  :maintainedBy :CityBirthdayWeekSecurityService ;
+  :maintainedBy :CityWestPerformanceSecurityService ;
   :pupolation 10000 ;
 .
 :CityWestPerfomancePeriod
@@ -69,6 +62,14 @@
   :includesPeriod :CraftFairPeriod ;
   :periodEnd "2018-06-02T23:00:00"^^xsd:dateTime ;
   :periodStart "2018-06-02T08:00:00"^^xsd:dateTime ;
+.
+:CityWestPerformanceSecurityService
+  rdf:type :LocalSecurity ;
+  :hasBeyondLimitsMaintenanceLack 4000 ;
+  :hasExpandability 1500 ;
+  :hasMaintenanceReserve 500 ;
+  :hasWithinLimitsMaintananceLack 2000 ;
+  :maintainsPopulation 4000 ;
 .
 :CityWestSquare
   rdf:type :Location ;
@@ -173,7 +174,7 @@
   :hasExpandability 800 ;
   :hasMaintenanceReserve 200 ;
   :maintainSecurity :CityWestPerfomance ;
-  :maintainService :CityBirthdayWeekSecurityService ;
+  :maintainService :CityWestPerformanceSecurityService ;
   :maintainsDistrict :NotrhWestDistrict ;
   :maintainsPopulation 2000 ;
 .
@@ -235,7 +236,7 @@
   :hasExpandability 700 ;
   :hasMaintenanceReserve 300 ;
   :maintainSecurity :CityWestPerfomance ;
-  :maintainService :CityBirthdayWeekSecurityService ;
+  :maintainService :CityWestPerformanceSecurityService ;
   :maintainsDistrict :SouthWestDistrict ;
   :maintainsPopulation "2000"^^xsd:string ;
 .
@@ -320,6 +321,11 @@
         ) ;
     ] ;
 .
+:hasBeyondLimitsMaintenanceLack
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :LocalService ;
+  rdfs:range xsd:integer ;
+.
 :hasExpandability
   rdf:type owl:DatatypeProperty ;
   rdfs:domain [
@@ -334,11 +340,6 @@
 :hasLocation
   rdf:type owl:ObjectProperty ;
 .
-:hasMaintenanceLack
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain :LocalService ;
-  rdfs:range xsd:integer ;
-.
 :hasMaintenanceReserve
   rdf:type owl:DatatypeProperty ;
   rdfs:domain [
@@ -352,6 +353,11 @@
 .
 :hasPeriod
   rdf:type owl:ObjectProperty ;
+.
+:hasWithinLimitsMaintananceLack
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :LocalService ;
+  rdfs:range xsd:integer ;
 .
 :headsTowards
   rdf:type rdf:Property ;
