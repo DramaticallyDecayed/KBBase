@@ -45,11 +45,20 @@
   rdfs:subClassOf core2-1ed:WorldEntity ;
   rdfs:subClassOf owl:Thing ;
 .
+:Police
+  rdf:type owl:Class ;
+  rdfs:subClassOf :OrganizedGroup ;
+.
 :belongsTo
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Participant ;
   rdfs:range :Group ;
   rdfs:subPropertyOf core2-1ed:associative ;
+.
+:conflictsWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Group ;
+  rdfs:range :Group ;
 .
 :hasLeader
   rdf:type owl:ObjectProperty ;
