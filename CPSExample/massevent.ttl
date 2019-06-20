@@ -49,6 +49,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :OrganizedGroup ;
 .
+:Provocateur
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Participant ;
+.
 :belongsTo
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Participant ;
@@ -57,12 +61,26 @@
 .
 :conflictsWith
   rdf:type owl:ObjectProperty ;
-  rdfs:domain :Group ;
-  rdfs:range :Group ;
+  rdfs:domain :OrganizedGroup ;
+  rdfs:range :Police ;
 .
 :hasLeader
   rdf:type owl:ObjectProperty ;
   rdfs:domain :OrganizedGroup ;
   rdfs:range :Leader ;
   rdfs:subPropertyOf core2-1ed:generative ;
+.
+:hasProvocateur
+  rdf:type owl:ObjectProperty ;
+.
+:provoke
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Provocateur ;
+  rdfs:range :Police ;
+  rdfs:subPropertyOf core2-1ed:associative ;
+  owl:propertyChainAxiom (
+      owl:inverseOf
+      :hasProvocateur
+      :conflictsWith
+    ) ;
 .
