@@ -32,8 +32,17 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
+:Leader
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Participant ;
+.
+:OrganizedGroup
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Group ;
+.
 :Participant
   rdf:type owl:Class ;
+  rdfs:subClassOf core2-1ed:WorldEntity ;
   rdfs:subClassOf owl:Thing ;
 .
 :belongsTo
@@ -41,4 +50,10 @@
   rdfs:domain :Participant ;
   rdfs:range :Group ;
   rdfs:subPropertyOf core2-1ed:associative ;
+.
+:hasLeader
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :OrganizedGroup ;
+  rdfs:range :Leader ;
+  rdfs:subPropertyOf core2-1ed:generative ;
 .
