@@ -1,0 +1,286 @@
+# baseURI: http://datafabric.cc/massevent.infGraph
+
+<http://datafabric.cc/massevent#belongsTo>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#Base> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ModelEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#WorldEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#Base> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ModelEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#WorldEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#map_world2cu> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#adjustmentOf>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#associative>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#WorldEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#WorldEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#axiomPartFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#flowCommutation> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#belongs2Level>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#complex>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ModelEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ModelEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#map_world2cu> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#dataFlowRelation>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#dependOn>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#domainInFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#PropertyFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#flowCommutation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#inFlow> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#domainPropertyOfFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ModelEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#donorNodes>
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#elaboratedWith>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#firstInAxiomFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#PropertyFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#flowCommutation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#inFlow> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#flowCommutation>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#flowPart>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#flowType>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#generative>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#hasBase>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputabilityEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#hasDerivative>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputabilityEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#hasNumber>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#implement>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputabilityEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computability> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#inFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#inverseFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#map_cu2node>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#map_world2cu>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#nextLevel>
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#objectOfFlow>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#objectPartFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#flowCommutation> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#outFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#propertyOfFlow>
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#rangeInFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#PropertyFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#flowCommutation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#inFlow> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#rangePropertyOfFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ModelEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+.
+<http://dramaticallydecayed.com/core2-1ed#secondInAxiomFlow>
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://dramaticallydecayed.com/core2-1ed#PropertyFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ComputationEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#ConfluentFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DataFlow> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://dramaticallydecayed.com/core2-1ed#DesignEntity> ;
+  <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#computation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#dataFlowRelation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#design> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#flowCommutation> ;
+  <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://dramaticallydecayed.com/core2-1ed#inFlow> ;
+.

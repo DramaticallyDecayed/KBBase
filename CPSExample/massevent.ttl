@@ -1,0 +1,44 @@
+# baseURI: http://datafabric.cc/massevent
+# imports: http://dramaticallydecayed.com/core2-1ed
+# imports: http://spinrdf.org/spl
+
+@prefix : <http://datafabric.cc/massevent#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix core2-1ed: <http://dramaticallydecayed.com/core2-1ed#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datafabric.cc/massevent>
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  owl:imports <http://dramaticallydecayed.com/core2-1ed> ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:BaseObject
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:DerivativeObject
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Group
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Participant
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+:belongsTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Participant ;
+  rdfs:range :Group ;
+  rdfs:subPropertyOf core2-1ed:associative ;
+.
