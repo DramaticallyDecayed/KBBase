@@ -15,17 +15,18 @@
 
 <http://datafabric.cc/massevent>
   rdf:type owl:Ontology ;
-  spin:imports <http://topbraid.org/spin/owlrl-all> ;
   owl:imports <http://dramaticallydecayed.com/core2-1ed> ;
   owl:imports <http://spinrdf.org/spl> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
 :BaseObject
   rdf:type owl:Class ;
+  rdfs:subClassOf core2-1ed:WorldEntity ;
   rdfs:subClassOf owl:Thing ;
 .
 :DerivativeObject
   rdf:type owl:Class ;
+  rdfs:subClassOf core2-1ed:WorldEntity ;
   rdfs:subClassOf owl:Thing ;
 .
 :FighterGroup
@@ -38,7 +39,13 @@
 .
 :Group
   rdf:type owl:Class ;
+  rdfs:subClassOf core2-1ed:WorldEntity ;
   rdfs:subClassOf owl:Thing ;
+.
+:KnownGroup
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Group ;
+  rdfs:subClassOf core2-1ed:Known ;
 .
 :Leader
   rdf:type owl:Class ;
@@ -55,7 +62,7 @@
 .
 :Participant
   rdf:type owl:Class ;
-  rdfs:subClassOf core2-1ed:WorldEntity ;
+  rdfs:subClassOf core2-1ed:Percepted ;
   rdfs:subClassOf owl:Thing ;
 .
 :Police
@@ -73,7 +80,7 @@
 :belongsTo
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Participant ;
-  rdfs:range :Group ;
+  rdfs:range :KnownGroup ;
   rdfs:subPropertyOf core2-1ed:associative ;
 .
 :conflictsWith
@@ -128,4 +135,25 @@
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Leader ;
   rdfs:range :Goal ;
+.
+core2-1ed:CUWorldGeneration_1
+  rdf:type core2-1ed:CUWorldGeneration ;
+.
+core2-1ed:ComputedClassGeneration_1
+  rdf:type core2-1ed:ComputedClassGeneration ;
+.
+core2-1ed:DFGeneration_1
+  rdf:type core2-1ed:DFGeneration ;
+.
+core2-1ed:ElaborationGeneration_1
+  rdf:type core2-1ed:ElaborationGeneration ;
+.
+core2-1ed:LevelGeneration_1
+  rdf:type core2-1ed:LevelGeneration ;
+.
+core2-1ed:NDActivation_1
+  rdf:type core2-1ed:NDActivation ;
+.
+core2-1ed:NDGeneration_1
+  rdf:type core2-1ed:NDGeneration ;
 .
