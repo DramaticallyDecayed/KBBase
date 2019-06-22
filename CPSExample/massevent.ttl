@@ -28,6 +28,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
+:FighterGroup
+  rdf:type owl:Class ;
+  rdfs:subClassOf :OrganizedGroup ;
+.
 :Goal
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
@@ -39,6 +43,11 @@
 :Leader
   rdf:type owl:Class ;
   rdfs:subClassOf :Participant ;
+.
+:OrganizedFightingGroup
+  rdf:type owl:Class ;
+  rdfs:subClassOf :OrganizedGroup ;
+  rdfs:subClassOf core2-1ed:Complex ;
 .
 :OrganizedGroup
   rdf:type owl:Class ;
@@ -57,6 +66,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf :Participant ;
 .
+:ProvocateurGroup
+  rdf:type owl:Class ;
+  rdfs:subClassOf :OrganizedGroup ;
+.
 :belongsTo
   rdf:type owl:ObjectProperty ;
   rdfs:domain :Participant ;
@@ -68,16 +81,26 @@
   rdfs:domain :OrganizedGroup ;
   rdfs:range :Police ;
 .
+:hasFighters
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :OrganizedFightingGroup ;
+  rdfs:range :FighterGroup ;
+  rdfs:subPropertyOf core2-1ed:complex ;
+  rdfs:subPropertyOf core2-1ed:generative ;
+.
 :hasLeader
   rdf:type owl:ObjectProperty ;
   rdfs:domain :OrganizedGroup ;
   rdfs:range :Leader ;
   rdfs:subPropertyOf core2-1ed:generative ;
 .
-:hasProvocateur
+:hasProvocateurs
   rdf:type owl:ObjectProperty ;
+  rdfs:domain :OrganizedFightingGroup ;
   rdfs:domain :OrganizedGroup ;
-  rdfs:range :Provocateur ;
+  rdfs:range :ProvocateurGroup ;
+  rdfs:subPropertyOf core2-1ed:complex ;
+  rdfs:subPropertyOf core2-1ed:generative ;
 .
 :provoke
   rdf:type owl:ObjectProperty ;
@@ -86,7 +109,7 @@
   rdfs:subPropertyOf core2-1ed:associative ;
   owl:propertyChainAxiom (
       owl:inverseOf
-      :hasProvocateur
+      :hasProvocateurs
       :conflictsWith
     ) ;
 .
