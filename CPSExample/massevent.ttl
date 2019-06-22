@@ -90,6 +90,7 @@
 .
 :hasLeader
   rdf:type owl:ObjectProperty ;
+  rdfs:domain :OrganizedFightingGroup ;
   rdfs:domain :OrganizedGroup ;
   rdfs:range :Leader ;
   rdfs:subPropertyOf core2-1ed:generative ;
