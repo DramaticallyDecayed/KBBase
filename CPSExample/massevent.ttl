@@ -28,6 +28,10 @@
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
 .
+:Goal
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
 :Group
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
@@ -85,4 +89,19 @@
       :hasProvocateur
       :conflictsWith
     ) ;
+.
+:pursueGoal
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :OrganizedGroup ;
+  rdfs:range :Goal ;
+  rdfs:subPropertyOf core2-1ed:generative ;
+  owl:propertyChainAxiom (
+      :hasLeader
+      :setGoal
+    ) ;
+.
+:setGoal
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Leader ;
+  rdfs:range :Goal ;
 .
