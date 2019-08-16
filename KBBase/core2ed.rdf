@@ -1255,65 +1255,6 @@
       <sp:Construct>
         <sp:templates rdf:parseType="Collection">
           <rdf:Description>
-            <sp:object>TEST_TEST</sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-        </sp:templates>
-        <sp:where rdf:parseType="Collection">
-          <sp:TriplePath>
-            <sp:object>
-              <owl:Class rdf:ID="ComputationUnit"/>
-            </sp:object>
-            <sp:path>
-              <sp:SeqPath>
-                <sp:path2>
-                  <sp:ModPath>
-                    <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                    >1</sp:modMin>
-                    <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                    >-2</sp:modMax>
-                    <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-                  </sp:ModPath>
-                </sp:path2>
-                <sp:path1 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-              </sp:SeqPath>
-            </sp:path>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </sp:TriplePath>
-          <sp:Optional>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName>nextLevel</sp:varName>
-                </sp:object>
-                <sp:predicate rdf:resource="#nextLevel"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName>cu</sp:varName>
-                </sp:subject>
-              </rdf:Description>
-            </sp:elements>
-          </sp:Optional>
-        </sp:where>
-      </sp:Construct>
-    </spin:rule>
-    <spin:rule>
-      <sp:Construct>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
             <sp:object>
               <owl:Class rdf:about="#Node"/>
             </sp:object>
@@ -1665,6 +1606,68 @@
               <sp:varName>cu</sp:varName>
             </sp:subject>
           </rdf:Description>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object>TEST_TEST</sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>nextLevel</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <sp:TriplePath>
+            <sp:object>
+              <owl:Class rdf:ID="ComputationUnit"/>
+            </sp:object>
+            <sp:path>
+              <sp:SeqPath>
+                <sp:path2>
+                  <sp:ModPath>
+                    <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >1</sp:modMin>
+                    <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >-2</sp:modMax>
+                    <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+                  </sp:ModPath>
+                </sp:path2>
+                <sp:path1 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+              </sp:SeqPath>
+            </sp:path>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </sp:TriplePath>
+          <sp:Optional>
+            <sp:elements rdf:parseType="Collection">
+              <sp:Bind>
+                <sp:expression>
+                  <nextLevelFn>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName>cu</sp:varName>
+                    </sp:arg1>
+                  </nextLevelFn>
+                </sp:expression>
+                <sp:variable rdf:parseType="Resource">
+                  <sp:varName>nextLevel</sp:varName>
+                </sp:variable>
+              </sp:Bind>
+            </sp:elements>
+          </sp:Optional>
         </sp:where>
       </sp:Construct>
     </spin:rule>
@@ -6520,6 +6523,297 @@
         <spl:predicate rdf:resource="http://spinrdf.org/arg#a2"/>
       </spl:Argument>
     </spin:constraint>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+  </spin:Function>
+  <rdf:Description rdf:nodeID="A2">
+    <sp:varName>number</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:parseType="Resource">
+      <sp:varName>nd</sp:varName>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <sp:object rdf:parseType="Resource">
+      <sp:varName>b</sp:varName>
+    </sp:object>
+    <sp:predicate rdf:resource="#hasBase"/>
+    <sp:subject rdf:resource="http://spinrdf.org/spin#_arg1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <sp:varName>nd</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:parseType="Resource">
+      <sp:varName>nextLevel</sp:varName>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <sp:varName>nextLevel</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <rdf:rest rdf:parseType="Collection">
+      <sp:TriplePath>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName>b</sp:varName>
+        </sp:object>
+        <sp:path>
+          <sp:SeqPath>
+            <sp:path2>
+              <sp:ModPath>
+                <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >0</sp:modMin>
+                <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >-2</sp:modMax>
+                <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+              </sp:ModPath>
+            </sp:path2>
+            <sp:path1 rdf:resource="#hasDerivative"/>
+          </sp:SeqPath>
+        </sp:path>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName>nd</sp:varName>
+        </sp:subject>
+      </sp:TriplePath>
+      <rdf:Description>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName>level</sp:varName>
+        </sp:object>
+        <sp:predicate rdf:resource="#belongs2Level"/>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName>nd</sp:varName>
+        </sp:subject>
+      </rdf:Description>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:resource="#Node"/>
+      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName>nd</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first>
+      <sp:Desc>
+        <sp:expression rdf:parseType="Resource">
+          <sp:varName>num</sp:varName>
+        </sp:expression>
+      </sp:Desc>
+    </rdf:first>
+  </rdf:Description>
+  <sp:Count rdf:nodeID="A10">
+    <sp:expression rdf:parseType="Resource">
+      <sp:varName>b</sp:varName>
+    </sp:expression>
+  </sp:Count>
+  <sp:Optional rdf:nodeID="A11">
+    <sp:elements rdf:nodeID="A8"/>
+  </sp:Optional>
+  <sp:Select rdf:nodeID="A12">
+    <rdfs:comment>#finds donor node with max level among all donors
+# the first stage is check that for all bases there are donor nodes</rdfs:comment>
+    <sp:resultVariables rdf:nodeID="A6"/>
+    <sp:where rdf:parseType="Collection">
+      <sp:SubQuery>
+        <sp:query>
+          <sp:Select>
+            <sp:orderBy rdf:nodeID="A9"/>
+            <sp:limit rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >1</sp:limit>
+            <sp:resultVariables rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:varName>level</sp:varName>
+              </rdf:Description>
+            </sp:resultVariables>
+            <sp:where rdf:parseType="Collection">
+              <sp:SubQuery>
+                <sp:query>
+                  <sp:Select>
+                    <sp:resultVariables rdf:parseType="Collection">
+                      <rdf:Description>
+                        <sp:expression rdf:nodeID="A10"/>
+                        <sp:varName>bc</sp:varName>
+                      </rdf:Description>
+                      <rdf:Description>
+                        <sp:expression>
+                          <sp:Count>
+                            <sp:expression rdf:nodeID="A5"/>
+                          </sp:Count>
+                        </sp:expression>
+                        <sp:varName>ndc</sp:varName>
+                      </rdf:Description>
+                    </sp:resultVariables>
+                    <sp:where rdf:parseType="Collection">
+                      <rdf:Description rdf:nodeID="A4"/>
+                      <sp:Optional rdf:nodeID="A11"/>
+                    </sp:where>
+                  </sp:Select>
+                </sp:query>
+              </sp:SubQuery>
+              <sp:Filter>
+                <sp:expression>
+                  <sp:eq>
+                    <sp:arg2 rdf:parseType="Resource">
+                      <sp:varName>ndc</sp:varName>
+                    </sp:arg2>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName>bc</sp:varName>
+                    </sp:arg1>
+                  </sp:eq>
+                </sp:expression>
+              </sp:Filter>
+              <sp:Filter>
+                <sp:expression>
+                  <sp:gt>
+                    <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >0</sp:arg2>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName>bc</sp:varName>
+                    </sp:arg1>
+                  </sp:gt>
+                </sp:expression>
+              </sp:Filter>
+              <sp:Bind>
+                <sp:expression>
+                  <donorNodeFn>
+                    <sp:arg1 rdf:resource="http://spinrdf.org/spin#_arg1"/>
+                  </donorNodeFn>
+                </sp:expression>
+                <sp:variable rdf:parseType="Resource">
+                  <sp:varName>ndd</sp:varName>
+                </sp:variable>
+              </sp:Bind>
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName>level</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="#belongs2Level"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName>ndd</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName>num</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="#hasNumber"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName>level</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:where>
+          </sp:Select>
+        </sp:query>
+      </sp:SubQuery>
+      <rdf:Description>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName>number</sp:varName>
+        </sp:object>
+        <sp:predicate rdf:resource="#hasNumber"/>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName>level</sp:varName>
+        </sp:subject>
+      </rdf:Description>
+      <rdf:Description>
+        <sp:object rdf:resource="#Level"/>
+        <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <sp:subject rdf:nodeID="A7"/>
+      </rdf:Description>
+      <rdf:Description>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName>nextLevelNumber</sp:varName>
+        </sp:object>
+        <sp:predicate rdf:resource="#hasNumber"/>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName>nextLevel</sp:varName>
+        </sp:subject>
+      </rdf:Description>
+      <sp:Filter>
+        <sp:expression>
+          <sp:eq>
+            <sp:arg2>
+              <sp:add>
+                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</sp:arg2>
+                <sp:arg1 rdf:nodeID="A2"/>
+              </sp:add>
+            </sp:arg2>
+            <sp:arg1 rdf:parseType="Resource">
+              <sp:varName>nextLevelNumber</sp:varName>
+            </sp:arg1>
+          </sp:eq>
+        </sp:expression>
+      </sp:Filter>
+    </sp:where>
+  </sp:Select>
+  <spin:Function rdf:ID="nextLevelFn">
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/sp#arg1"/>
+      </spl:Argument>
+    </spin:constraint>
+    <spin:body rdf:nodeID="A12"/>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+  </spin:Function>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:rest rdf:parseType="Collection">
+      <sp:TriplePath>
+        <sp:object rdf:parseType="Resource">
+          <sp:varName>b</sp:varName>
+        </sp:object>
+        <sp:path>
+          <sp:SeqPath>
+            <sp:path2>
+              <sp:ModPath>
+                <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >0</sp:modMin>
+                <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >-2</sp:modMax>
+                <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+              </sp:ModPath>
+            </sp:path2>
+            <sp:path1 rdf:resource="#hasDerivative"/>
+          </sp:SeqPath>
+        </sp:path>
+        <sp:subject rdf:parseType="Resource">
+          <sp:varName>nd</sp:varName>
+        </sp:subject>
+      </sp:TriplePath>
+    </rdf:rest>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:resource="#Node"/>
+      <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+      <sp:subject rdf:parseType="Resource">
+        <sp:varName>nd</sp:varName>
+      </sp:subject>
+    </rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <sp:varName>b</sp:varName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <rdf:rest rdf:nodeID="A13"/>
+    <rdf:first rdf:parseType="Resource">
+      <sp:object rdf:nodeID="A14"/>
+      <sp:predicate rdf:resource="#hasBase"/>
+      <sp:subject rdf:resource="http://spinrdf.org/spin#_arg1"/>
+    </rdf:first>
+  </rdf:Description>
+  <spl:Argument rdf:nodeID="A16">
+    <spl:predicate rdf:resource="http://spinrdf.org/sp#arg1"/>
+  </spl:Argument>
+  <sp:Select rdf:nodeID="A17">
+    <rdfs:comment>#return all donor nodes</rdfs:comment>
+    <sp:resultVariables rdf:nodeID="A3"/>
+    <sp:where rdf:nodeID="A15"/>
+  </sp:Select>
+  <spin:Function rdf:ID="donorNodeFn">
+    <spin:constraint rdf:nodeID="A16"/>
+    <spin:body rdf:nodeID="A17"/>
     <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
   </spin:Function>
 </rdf:RDF>
