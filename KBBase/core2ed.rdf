@@ -1261,6 +1261,15 @@
               <sp:varName>cu</sp:varName>
             </sp:subject>
           </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>nextLevel</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
         </sp:templates>
         <sp:where rdf:parseType="Collection">
           <sp:TriplePath>
@@ -1285,15 +1294,19 @@
               <sp:varName>cu</sp:varName>
             </sp:subject>
           </sp:TriplePath>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="#nextLevel"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </rdf:Description>
+          <sp:Optional>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName>nextLevel</sp:varName>
+                </sp:object>
+                <sp:predicate rdf:resource="#nextLevel"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName>cu</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+          </sp:Optional>
         </sp:where>
       </sp:Construct>
     </spin:rule>
