@@ -949,178 +949,6 @@
             </sp:subject>
             <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:object>
-              <owl:Class rdf:ID="GenerativeComplexCU"/>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#hasBase"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>base</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#hasDerivative"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>derivative</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="#nextLevel"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:DatatypeProperty rdf:about="#hasNumber"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevelNumber</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <sp:Bind>
-            <sp:variable rdf:parseType="Resource">
-              <sp:varName>ns</sp:varName>
-            </sp:variable>
-            <sp:expression>
-              <afn:namespace>
-                <sp:arg1 rdf:parseType="Resource">
-                  <sp:varName>cu</sp:varName>
-                </sp:arg1>
-              </afn:namespace>
-            </sp:expression>
-          </sp:Bind>
-          <sp:Bind>
-            <sp:variable rdf:parseType="Resource">
-              <sp:varName>nd</sp:varName>
-            </sp:variable>
-            <sp:expression>
-              <sp:iri>
-                <sp:arg1>
-                  <fn:concat>
-                    <sp:arg1 rdf:parseType="Resource">
-                      <sp:varName>ns</sp:varName>
-                    </sp:arg1>
-                    <sp:arg2>node_</sp:arg2>
-                    <sp:arg3>
-                      <afn:localname>
-                        <sp:arg1 rdf:parseType="Resource">
-                          <sp:varName>cu</sp:varName>
-                        </sp:arg1>
-                      </afn:localname>
-                    </sp:arg3>
-                  </fn:concat>
-                </sp:arg1>
-              </sp:iri>
-            </sp:expression>
-          </sp:Bind>
-          <sp:Minus>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName>nd</sp:varName>
-                </sp:subject>
-                <sp:predicate>
-                  <owl:ObjectProperty rdf:about="#belongs2Level"/>
-                </sp:predicate>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName>any</sp:varName>
-                </sp:object>
-              </rdf:Description>
-            </sp:elements>
-          </sp:Minus>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="#donorNodes"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>donorNodes</sp:varName>
-            </sp:object>
-          </rdf:Description>
-        </sp:where>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>nd</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object>
-              <owl:Class rdf:about="#Node"/>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>nd</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#belongs2Level"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>nd</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#hasBase"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>base</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>nd</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#dependOn"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>donorNodes</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>nd</sp:varName>
-            </sp:subject>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#implement"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:object>
-          </rdf:Description>
-        </sp:templates>
-      </sp:Construct>
-    </spin:rule>
-    <spin:rule>
-      <sp:Construct>
-        <sp:where rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object>
               <owl:Class rdf:ID="GenerativeComplexCompositeCU"/>
             </sp:object>
           </rdf:Description>
@@ -1282,61 +1110,6 @@
             </sp:object>
           </rdf:Description>
         </sp:templates>
-      </sp:Construct>
-    </spin:rule>
-    <spin:rule>
-      <sp:Construct>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:object>TEST_TEST</sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-        </sp:templates>
-        <sp:where rdf:parseType="Collection">
-          <sp:TriplePath>
-            <sp:object>
-              <owl:Class rdf:ID="ComputationUnit"/>
-            </sp:object>
-            <sp:path>
-              <sp:SeqPath>
-                <sp:path2>
-                  <sp:ModPath>
-                    <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                    >1</sp:modMin>
-                    <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                    >-2</sp:modMax>
-                    <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-                  </sp:ModPath>
-                </sp:path2>
-                <sp:path1 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-              </sp:SeqPath>
-            </sp:path>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </sp:TriplePath>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>nextLevel</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="#nextLevel"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-        </sp:where>
       </sp:Construct>
     </spin:rule>
     <spin:rule>
@@ -1543,6 +1316,134 @@
     <rdfs:subClassOf>
       <owl:Class rdf:about="#DevelopmentEntity"/>
     </rdfs:subClassOf>
+    <spin:rule>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object>
+              <owl:Class rdf:about="#Node"/>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>nextLevel</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#belongs2Level"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>base</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#hasBase"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>donorNodes</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#dependOn"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#implement"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>nd</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object>
+              <owl:Class rdf:ID="GenerativeComplexCU"/>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>base</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#hasBase"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>derivative</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#hasDerivative"/>
+            </sp:predicate>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:Bind>
+            <sp:expression>
+              <afn:namespace>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName>cu</sp:varName>
+                </sp:arg1>
+              </afn:namespace>
+            </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName>ns</sp:varName>
+            </sp:variable>
+          </sp:Bind>
+          <sp:Bind>
+            <sp:expression>
+              <sp:iri>
+                <sp:arg1>
+                  <fn:concat>
+                    <sp:arg3>
+                      <afn:localname>
+                        <sp:arg1 rdf:parseType="Resource">
+                          <sp:varName>cu</sp:varName>
+                        </sp:arg1>
+                      </afn:localname>
+                    </sp:arg3>
+                    <sp:arg2>node_</sp:arg2>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName>ns</sp:varName>
+                    </sp:arg1>
+                  </fn:concat>
+                </sp:arg1>
+              </sp:iri>
+            </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName>nd</sp:varName>
+            </sp:variable>
+          </sp:Bind>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
     <spin:rule>
       <sp:Construct>
         <sp:where rdf:parseType="Collection">
@@ -1834,6 +1735,61 @@
             </sp:object>
           </rdf:Description>
         </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object>TEST</sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>nextLevel</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <sp:TriplePath>
+            <sp:object>
+              <owl:Class rdf:ID="ComputationUnit"/>
+            </sp:object>
+            <sp:path>
+              <sp:SeqPath>
+                <sp:path2>
+                  <sp:ModPath>
+                    <sp:modMin rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >1</sp:modMin>
+                    <sp:modMax rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >-2</sp:modMax>
+                    <sp:subPath rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+                  </sp:ModPath>
+                </sp:path2>
+                <sp:path1 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+              </sp:SeqPath>
+            </sp:path>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </sp:TriplePath>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>nextLevel</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="#nextLevel"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:where>
       </sp:Construct>
     </spin:rule>
     <spin:rule>
@@ -5635,91 +5591,154 @@
     </spin:rule>
   </owl:Class>
   <owl:Class rdf:about="#Node">
-    <rdfs:subClassOf rdf:resource="#ComputationEntity"/>
     <spin:rule>
       <sp:Construct>
-        <sp:where rdf:parseType="Collection">
+        <sp:templates rdf:parseType="Collection">
           <rdf:Description>
-            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#implement"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>cu</sp:varName>
-            </sp:subject>
+            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
             <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object>
-              <owl:Class rdf:about="#GenerativeCompositeCU"/>
-            </sp:object>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>newr</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <rdf:Description>
-            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate>
-              <owl:ObjectProperty rdf:about="#hasDerivative"/>
-            </sp:predicate>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>composite</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>composite</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>axiom</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <sp:TriplePath>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>axiom</sp:varName>
-            </sp:subject>
-            <sp:path>
-              <sp:SeqPath>
-                <sp:path1 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
-                <sp:path2 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
-              </sp:SeqPath>
-            </sp:path>
             <sp:object rdf:parseType="Resource">
               <sp:varName>complement</sp:varName>
             </sp:object>
-          </sp:TriplePath>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#subPropertyOf"/>
             <sp:subject rdf:parseType="Resource">
-              <sp:varName>complement</sp:varName>
+              <sp:varName>newr</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName>cdomain</sp:varName>
             </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>newr</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>complement</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
             <sp:object rdf:parseType="Resource">
               <sp:varName>crange</sp:varName>
             </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>newr</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <rdf:Description>
+            <sp:object rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
             <sp:subject rdf:parseType="Resource">
-              <sp:varName>invbase</sp:varName>
+              <sp:varName>newr</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#inverseOf"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>invbase</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:nodeID="A1"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
+            <sp:subject rdf:nodeID="A0"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>composite</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
+            <sp:subject rdf:nodeID="A1"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
+            <sp:subject rdf:nodeID="A1"/>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#implement"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object>
+              <owl:Class rdf:about="#GenerativeCompositeCU"/>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>cu</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>composite</sp:varName>
+            </sp:object>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#hasDerivative"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>axiom</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>composite</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:TriplePath>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>complement</sp:varName>
+            </sp:object>
+            <sp:path>
+              <sp:SeqPath>
+                <sp:path2 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
+                <sp:path1 rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
+              </sp:SeqPath>
+            </sp:path>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>axiom</sp:varName>
+            </sp:subject>
+          </sp:TriplePath>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>cdomain</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>complement</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName>crange</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>complement</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName>base</sp:varName>
             </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#inverseOf"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName>invbase</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <sp:Bind>
-            <sp:variable rdf:parseType="Resource">
-              <sp:varName>ns</sp:varName>
-            </sp:variable>
             <sp:expression>
               <afn:namespace>
                 <sp:arg1 rdf:parseType="Resource">
@@ -5727,26 +5746,15 @@
                 </sp:arg1>
               </afn:namespace>
             </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName>ns</sp:varName>
+            </sp:variable>
           </sp:Bind>
           <sp:Bind>
-            <sp:variable rdf:parseType="Resource">
-              <sp:varName>newr</sp:varName>
-            </sp:variable>
             <sp:expression>
               <sp:iri>
                 <sp:arg1>
                   <fn:concat>
-                    <sp:arg1 rdf:parseType="Resource">
-                      <sp:varName>ns</sp:varName>
-                    </sp:arg1>
-                    <sp:arg2>
-                      <afn:localname>
-                        <sp:arg1 rdf:parseType="Resource">
-                          <sp:varName>invbase</sp:varName>
-                        </sp:arg1>
-                      </afn:localname>
-                    </sp:arg2>
-                    <sp:arg3>_</sp:arg3>
                     <sp:arg4>
                       <afn:localname>
                         <sp:arg1 rdf:parseType="Resource">
@@ -5754,96 +5762,44 @@
                         </sp:arg1>
                       </afn:localname>
                     </sp:arg4>
+                    <sp:arg3>_</sp:arg3>
+                    <sp:arg2>
+                      <afn:localname>
+                        <sp:arg1 rdf:parseType="Resource">
+                          <sp:varName>invbase</sp:varName>
+                        </sp:arg1>
+                      </afn:localname>
+                    </sp:arg2>
+                    <sp:arg1 rdf:parseType="Resource">
+                      <sp:varName>ns</sp:varName>
+                    </sp:arg1>
                   </fn:concat>
                 </sp:arg1>
               </sp:iri>
             </sp:expression>
+            <sp:variable rdf:parseType="Resource">
+              <sp:varName>newr</sp:varName>
+            </sp:variable>
           </sp:Bind>
           <sp:Filter>
             <sp:expression>
               <sp:notExists>
                 <sp:elements rdf:parseType="Collection">
                   <rdf:Description>
+                    <sp:object rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+                    <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
                     <sp:subject rdf:parseType="Resource">
                       <sp:varName>newr</sp:varName>
                     </sp:subject>
-                    <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-                    <sp:object rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
                   </rdf:Description>
                 </sp:elements>
               </sp:notExists>
             </sp:expression>
           </sp:Filter>
         </sp:where>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>newr</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>newr</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#subPropertyOf"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>complement</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>newr</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>cdomain</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>newr</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>crange</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName>newr</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
-            <sp:object rdf:nodeID="A0"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:nodeID="A0"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>invbase</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:nodeID="A0"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
-            <sp:object rdf:nodeID="A1"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:nodeID="A1"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#first"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName>composite</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:nodeID="A1"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#rest"/>
-            <sp:object rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-          </rdf:Description>
-        </sp:templates>
       </sp:Construct>
     </spin:rule>
+    <rdfs:subClassOf rdf:resource="#ComputationEntity"/>
     <spin:rule>
       <sp:Construct>
         <sp:where rdf:parseType="Collection">
