@@ -15,17 +15,17 @@
 <http://dramaticallydecayed.com/airdefence>
   rdf:type owl:Ontology ;
   owl:imports <http://dramaticallydecayed.com/core2ed> ;
-  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+  owl:versionInfo "Created with TopBraid Composer" ;
 .
 :AircraftGroup
   rdf:type owl:Class ;
-  rdfs:label "Группа"^^xsd:string ;
+  rdfs:label "Группа" ;
   rdfs:subClassOf core2ed:Complex ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :Danger
   rdf:type owl:Class ;
-  rdfs:label "Угроза"^^xsd:string ;
+  rdfs:label "Угроза" ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :DisclosureDanger
@@ -34,17 +34,17 @@
 .
 :FormatedGroup
   rdf:type owl:Class ;
-  rdfs:label "Построенная группа"^^xsd:string ;
+  rdfs:label "Построенная группа" ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :IdentifiedAircraft
   rdf:type owl:Class ;
-  rdfs:label "Распознанный ЛА"^^xsd:string ;
+  rdfs:label "Распознанный ЛА" ;
   rdfs:subClassOf core2ed:WorldHLConcept ;
 .
 :ImportantObject
   rdf:type owl:Class ;
-  rdfs:label "Важный объект"^^xsd:string ;
+  rdfs:label "Важный объект" ;
   rdfs:subClassOf core2ed:Percepted ;
 .
 :MarchGroup
@@ -73,7 +73,7 @@
 .
 :UnknownAircraft
   rdf:type owl:Class ;
-  rdfs:label "Нераспознанный ЛА"^^xsd:string ;
+  rdfs:label "Нераспознанный ЛА" ;
   rdfs:subClassOf core2ed:Percepted ;
 .
 :associatedWithDanger
@@ -104,10 +104,18 @@
 :formGroup
   rdf:type owl:ObjectProperty ;
   rdfs:domain :UnknownAircraft ;
+  rdfs:label "входит в состав" ;
   rdfs:range :AircraftGroup ;
   rdfs:subPropertyOf core2ed:complex ;
   rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
+.
+:id
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :IdentifiedAircraft ;
+  rdfs:domain :ImportantObject ;
+  rdfs:domain :UnknownAircraft ;
+  rdfs:range xsd:integer ;
 .
 :identifiedAs
   rdf:type owl:ObjectProperty ;
@@ -119,7 +127,7 @@
 :identifiedAsFormation
   rdf:type owl:ObjectProperty ;
   rdfs:domain :AircraftGroup ;
-  rdfs:label "распознанна как"^^xsd:string ;
+  rdfs:label "распознанна как" ;
   rdfs:range :FormatedGroup ;
   rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
@@ -147,11 +155,14 @@
 :ndGeneration
   rdf:type core2ed:NDGeneration ;
 .
+:node_cu_UnknownAircraft
+  core2ed:hasDerivative :UnknownAircraft ;
+.
 :produceDanger
   rdf:type owl:ObjectProperty ;
   rdfs:domain :FormatedGroup ;
   rdfs:domain :IdentifiedAircraft ;
-  rdfs:label "создает угрозу"^^xsd:string ;
+  rdfs:label "создает угрозу" ;
   rdfs:range :Danger ;
   rdfs:subPropertyOf core2ed:world ;
 .
@@ -161,6 +172,12 @@
   rdfs:range :IdentifiedAircraft ;
   rdfs:subPropertyOf core2ed:world ;
   owl:inverseOf :produceDanger ;
+.
+:rcs
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :IdentifiedAircraft ;
+  rdfs:domain :UnknownAircraft ;
+  rdfs:range xsd:integer ;
 .
 :threaten
   rdf:type owl:ObjectProperty ;
@@ -176,7 +193,7 @@
 :threatenedBy
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ImportantObject ;
-  rdfs:label "под угрозой"^^xsd:string ;
+  rdfs:label "под угрозой" ;
   rdfs:range :Danger ;
   rdfs:subPropertyOf core2ed:generative ;
   rdfs:subPropertyOf core2ed:world ;
@@ -188,7 +205,7 @@
 :underFormedGroupDirection
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ImportantObject ;
-  rdfs:label "на направлении построенной группы"^^xsd:string ;
+  rdfs:label "на пути построенной группы" ;
   rdfs:range :FormatedGroup ;
   rdfs:subPropertyOf core2ed:associative ;
   rdfs:subPropertyOf core2ed:world ;
@@ -200,8 +217,34 @@
 :underGroupDirection
   rdf:type owl:ObjectProperty ;
   rdfs:domain :ImportantObject ;
-  rdfs:label "на направлении группы"^^xsd:string ;
+  rdfs:label "на пути группы" ;
   rdfs:range :AircraftGroup ;
   rdfs:subPropertyOf core2ed:associative ;
   rdfs:subPropertyOf core2ed:world ;
+.
+:vx
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :IdentifiedAircraft ;
+  rdfs:domain :UnknownAircraft ;
+  rdfs:range xsd:integer ;
+.
+:vy
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :IdentifiedAircraft ;
+  rdfs:domain :UnknownAircraft ;
+  rdfs:range xsd:integer ;
+.
+:x
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :IdentifiedAircraft ;
+  rdfs:domain :ImportantObject ;
+  rdfs:domain :UnknownAircraft ;
+  rdfs:range xsd:integer ;
+.
+:y
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :IdentifiedAircraft ;
+  rdfs:domain :ImportantObject ;
+  rdfs:domain :UnknownAircraft ;
+  rdfs:range xsd:integer ;
 .
